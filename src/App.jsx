@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router';
 
-import MainLayout from '@/layout/MainLayout';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
 
 import Example from '@/pages/Example';
 import Focus from '@/pages/Focus';
