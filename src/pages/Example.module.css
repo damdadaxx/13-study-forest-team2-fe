@@ -2,6 +2,10 @@
 
 /* Example.module.css */
 
+.textJejuNormal18 {
+  font: var(--typography-jeju-400-18);
+}
+
 .textBold150 {
   font: var(--typography-700-150);
   color: var(--black-black_414141);

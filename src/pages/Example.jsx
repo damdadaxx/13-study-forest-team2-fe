@@ -8,7 +8,10 @@ import styles from '@/pages/Example.module.css';
 export default function Example() {
   return (
     <div>
-      <h2 className={styles.textBold32}>Typography</h2>
+      <h2 className={styles.textBold120}>[Typography]</h2>
+      <p className={styles.textJejuNormal18}>
+        Efjejudoldam / Normal / 18pt / 0%
+      </p>
       <p className={styles.textBold32}>Pretendard / Bold / 32pt / 0%</p>
       <p className={styles.textBold24}>Pretendard / Bold / 24pt / 0%</p>
       <p className={styles.textBold20}>Pretendard / Bold / 20pt / 0%</p>
