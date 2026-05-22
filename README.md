@@ -116,7 +116,6 @@ src/
 │
 ├── components/                 # 재사용 가능한 UI 컴포넌트
 │   ├── common/                # 공통 컴포넌트 (Button 등)
-│   ├── layout/                # 레이아웃 컴포넌트
 │   └── study/                 # 기능별 컴포넌트 (StudyList 등)
 │
 ├── constants/                  # 상수 관리
@@ -126,7 +125,11 @@ src/
 │
 ├── hooks/                      # Custom Hooks
 │
-├── layout/                     # App 레이아웃
+├── layout/                     # 애플리케이션 전체 레이아웃
+│   └── MainLayout/             # 메인 레이아웃 및 관련 UI 컴포넌트 관리
+│   │   ├── MainLayout.js
+│   │   ├── Header.jsx
+│   │   └── Header.module.cs
 │
 ├── pages/                      # 라우팅 페이지
 │
@@ -325,7 +328,6 @@ VITE_API_BASE_URL=https://localhost:3000
 VITE_API_BASE_URL=https://api.example.com
 ```
 
-
 ### 환경 변수 사용
 
 ```javascript
@@ -425,12 +427,10 @@ git commit -m "fix: 스터디 목록 로딩 버그 수정"
 - CSS Module을 통한 스타일 격리
 - React DevTools를 통한 성능 모니터링
 
-
-
 ---
+
 **마지막 업데이트**: 2026년 5월
 
 ---
+
 본 프로젝트는 [코드잇](https://www.codeit.kr)의 소유이며, 교육 목적으로만 사용됩니다. © 2026 Codeit. All rights reserved.
-
-
