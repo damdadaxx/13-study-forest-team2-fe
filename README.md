@@ -125,7 +125,7 @@ src/
 │
 ├── hooks/                      # Custom Hooks
 │
-├── layout/                     # 애플리케이션 전체 레이아웃
+├── layouts/                     # 애플리케이션 전체 레이아웃
 │   └── MainLayout/             # 메인 레이아웃 및 관련 UI 컴포넌트 관리
 │   │   ├── MainLayout.js
 │   │   ├── Header.jsx
