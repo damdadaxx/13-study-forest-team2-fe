@@ -1,0 +1,94 @@
+/* styles/tokens.css */
+
+:root {
+  /*
+  * ========================================
+  * Color 토큰
+  * ========================================
+  * 
+  * 피그마 개발자 모드에서 보여주는 CSS Style을 그대로 복사해서 사용하기 위해 중복된 컬러명을 그대로 사용
+  *
+  * 규칙: --[color-family]-[color-family]-[color-name]
+  * 예: --black-black_414141, --brand-brand_99c08e
+  * 
+  * Color Family: black, gray, bg, brand, red, green, yellow, blue, pink
+  */
+
+  --black-black_414141: #414141;
+  --gray-gray_818181: #818181;
+  --gray-gray_DDDDDD: #ddd;
+  --gray-gray_EEEEEE: #eee;
+  --bg-bg_F6F4EF: #f6f4ef;
+  --brand-brand_99C08E: #99c08e;
+  --red-error_C41013: #c41013;
+  --red-red_F50E0E: #f50e0e;
+  --red-error_bg_FFA3A5: #ffa3a5;
+  --green-green_E1EDDE: #e1edde;
+  --yellow-yellow_FFF1CC: #fff1cc;
+  --blue-blue_E0F1F5: #e0f1f5;
+  --pink-pink_FDE0E9: #fde0e9;
+  --green-green_text_578246: #578246;
+  --yellow-yellow_text_C18E1B: #c18e1b;
+  --blue-blue_text_418099: #418099;
+  --pink-pink_text_BC3C6A: #bc3c6a;
+
+  /*
+ * ========================================
+ * 타이포그래피 토큰
+ * ========================================
+ * 
+ * 규칙: --typography-[weight]-[size]
+ * 예: --typography-bold-14
+ * 
+ * Weight: 400, 500, 700
+ * Size: 10, 12, 14, 16, 18, 20, 24, 32, 80, 120, 150
+ */
+  /* ========================================
+      Font Weight 400
+      ======================================== */
+
+  --typography-400-18: 400 18px / calc(21 / 18) 'Pretendard', sans-serif;
+  --typography-400-16: 400 16px / calc(19 / 16) 'Pretendard', sans-serif;
+  --typography-400-14: 400 14px / calc(17 / 14) 'Pretendard', sans-serif;
+  --typography-400-12: 400 12px / calc(14 / 12) 'Pretendard', sans-serif;
+  --typography-400-10: 400 10px / calc(14 / 10) 'Pretendard', sans-serif;
+
+  /* ========================================
+      Font Weight 500
+      ======================================== */
+
+  --typography-500-20: 500 20px / calc(24 / 20) 'Pretendard', sans-serif;
+  --typography-500-18: 500 18px / calc(21 / 18) 'Pretendard', sans-serif;
+  --typography-500-16: 500 16px / calc(19 / 16) 'Pretendard', sans-serif;
+  --typography-500-14: 500 14px / calc(17 / 14) 'Pretendard', sans-serif;
+  --typography-500-12: 500 12px / calc(14 / 12) 'Pretendard', sans-serif;
+  --typography-500-10: 500 10px / calc(14 / 10) 'Pretendard', sans-serif;
+
+  /* ========================================
+      Font Weight 700
+      ======================================== */
+
+  --typography-700-150: 700 150px / calc(179 / 150) 'Pretendard', sans-serif;
+  --typography-700-120: 700 120px / calc(143 / 120) 'Pretendard', sans-serif;
+  --typography-700-80: 700 80px / calc(80 / 80) 'Pretendard', sans-serif;
+  --typography-700-32: 700 32px / calc(38 / 32) 'Pretendard', sans-serif;
+  --typography-700-24: 700 24px / calc(29 / 24) 'Pretendard', sans-serif;
+  --typography-700-20: 700 20px / calc(24 / 20) 'Pretendard', sans-serif;
+  --typography-700-18: 700 18px / calc(21 / 18) 'Pretendard', sans-serif;
+  --typography-700-16: 700 16px / calc(19 / 16) 'Pretendard', sans-serif;
+  --typography-700-14: 700 14px / calc(17 / 14) 'Pretendard', sans-serif;
+  --typography-700-12: 700 12px / calc(14 / 12) 'Pretendard', sans-serif;
+  --typography-700-10: 700 10px / calc(14 / 10) 'Pretendard', sans-serif;
+
+  /*
+  * ========================================
+  * Z-Index 토큰
+  * ========================================
+  *
+  * 규칙: --z-index-[component-name]
+  * 계층 구조 (위에 갈수록 높음)
+  */
+
+  --z-index-modal: 1000;
+  --z-index-header: 900;
+}
