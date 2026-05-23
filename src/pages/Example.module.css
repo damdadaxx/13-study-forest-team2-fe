@@ -23,7 +23,7 @@
 
 .textBold32 {
   font: var(--typography-700-32);
-  color: var(--gray-gray_EEEEEE);
+  color: var(--blue-blue_text_418099);
 }
 
 .textBold24 {
@@ -109,4 +109,32 @@
 
 .textRegular10 {
   font: var(--typography-400-10);
+}
+
+.textExtraBold150 {
+  font: var(--typography-800-150);
+}
+
+.textExtraBold120 {
+  font: var(--typography-800-120);
+}
+
+.textExtraBold80 {
+  font: var(--typography-800-80);
+}
+
+.textExtraBold32 {
+  font: var(--typography-800-32);
+}
+
+.textExtraBold28 {
+  font: var(--typography-800-28);
+}
+
+.textExtraBold24 {
+  font: var(--typography-800-24);
+}
+
+.textExtraBold18 {
+  font: var(--typography-800-18);
 }
