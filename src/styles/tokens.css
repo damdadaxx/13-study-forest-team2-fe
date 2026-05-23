@@ -37,11 +37,13 @@
  * 타이포그래피 토큰
  * ========================================
  * 
- * 규칙: --typography-[weight]-[size]
+ * 규칙1: --typography-[weight]-[size]
  * 예: --typography-bold-14
+ * 규칙2: --typography-jeju-[weight]-[size]
+ * 예: --typography-jeju-400-18
  * 
- * Weight: 400, 500, 700
- * Size: 10, 12, 14, 16, 18, 20, 24, 32, 80, 120, 150
+ * Weight: 400, 500, 700, 800
+ * Size: 10, 12, 14, 16, 18, 20, 24, 28, 32, 80, 120, 150
  */
   /* ========================================
       Font Weight 400
@@ -52,6 +54,8 @@
   --typography-400-14: 400 14px / calc(17 / 14) 'Pretendard', sans-serif;
   --typography-400-12: 400 12px / calc(14 / 12) 'Pretendard', sans-serif;
   --typography-400-10: 400 10px / calc(14 / 10) 'Pretendard', sans-serif;
+
+  --typography-jeju-400-18: 400 18px / calc(28 / 18) 'Efjejudoldam', sans-serif;
 
   /* ========================================
       Font Weight 500
@@ -79,6 +83,18 @@
   --typography-700-14: 700 14px / calc(17 / 14) 'Pretendard', sans-serif;
   --typography-700-12: 700 12px / calc(14 / 12) 'Pretendard', sans-serif;
   --typography-700-10: 700 10px / calc(14 / 10) 'Pretendard', sans-serif;
+
+  /* ========================================
+      Font Weight 800
+      ======================================== */
+
+  --typography-800-150: 800 150px / calc(179 / 150) 'Pretendard', sans-serif;
+  --typography-800-120: 800 120px / calc(143 / 120) 'Pretendard', sans-serif;
+  --typography-800-80: 800 80px / calc(80 / 80) 'Pretendard', sans-serif;
+  --typography-800-32: 800 32px / calc(38 / 32) 'Pretendard', sans-serif;
+  --typography-800-28: 800 28px / calc(33 / 28) 'Pretendard', sans-serif;
+  --typography-800-24: 800 24px / calc(29 / 24) 'Pretendard', sans-serif;
+  --typography-800-18: 800 18px / calc(21 / 18) 'Pretendard', sans-serif;
 
   /*
   * ========================================

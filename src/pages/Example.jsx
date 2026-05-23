@@ -8,29 +8,42 @@ import styles from '@/pages/Example.module.css';
 export default function Example() {
   return (
     <div>
-      <h2 className={styles.textBold32}>Typography</h2>
-      <p className={styles.textBold32}>Pretendard / Bold / 32pt / 0%</p>
-      <p className={styles.textBold24}>Pretendard / Bold / 24pt / 0%</p>
-      <p className={styles.textBold20}>Pretendard / Bold / 20pt / 0%</p>
-      <p className={styles.textMedium20}>Pretendard / Medium / 20pt / 0%</p>
-      <p className={styles.textBold18}>Pretendard / Bold / 18pt / 0%</p>
-      <p className={styles.textMedium18}>Pretendard / Medium / 18pt / 0%</p>
-      <p className={styles.textRegular18}>Pretendard / Regular / 18pt / 0%</p>
-      <p className={styles.textBold16}>Pretendard / Bold / 16pt / 0%</p>
-      <p className={styles.textMedium16}>Pretendard / Medium / 16pt / 0%</p>
-      <p className={styles.textRegular16}>Pretendard / Regular / 16pt / 0%</p>
-      <p className={styles.textBold14}>Pretendard / Bold / 14pt / 0%</p>
-      <p className={styles.textMedium14}>Pretendard / Medium / 14pt / 0%</p>
-      <p className={styles.textRegular14}>Pretendard / Regular / 14pt / 0%</p>
-      <p className={styles.textBold12}>Pretendard / Bold / 12pt / 0%</p>
-      <p className={styles.textMedium12}>Pretendard / Medium / 12pt / 0%</p>
-      <p className={styles.textRegular12}>Pretendard / Regular / 12pt / 0%</p>
-      <p className={styles.textBold10}>Pretendard / Bold / 10pt / 0%</p>
-      <p className={styles.textMedium10}>Pretendard / Medium / 10pt / 0%</p>
-      <p className={styles.textRegular10}>Pretendard / Regular / 10pt / 0%</p>
-      <p className={styles.textBold150}>Pretendard / Bold / 150pt / 0%</p>
-      <p className={styles.textBold120}>Pretendard / Bold / 120pt / 0%</p>
-      <p className={styles.textBold80}>Pretendard / Bold / 80pt / 0%</p>
+      <h2 className={styles.textBold32}>[Typography-제주돌담체!]</h2>
+      <p className={styles.textJejuNormal18}>
+        Efjejudoldam / Normal / 18pt / 0%
+      </p>
+      <h2 className={styles.textBold32} style={{ paddingTop: '20px' }}>
+        [Typography-프리텐다드!]
+      </h2>
+      <p className={styles.textExtraBold150}>ExtraBold / 150pt / 0%</p>
+      <p className={styles.textExtraBold120}>ExtraBold / 120pt / 0%</p>
+      <p className={styles.textExtraBold80}>ExtraBold / 80pt / 0%</p>
+      <p className={styles.textExtraBold32}>ExtraBold / 32pt / 0%</p>
+      <p className={styles.textExtraBold28}>ExtraBold / 28pt / 0%</p>
+      <p className={styles.textExtraBold24}>ExtraBold / 24pt / 0%</p>
+      <p className={styles.textExtraBold18}>ExtraBold / 18pt / 0%</p>
+      <p className={styles.textBold150}>Bold / 150pt / 0%</p>
+      <p className={styles.textBold120}>Bold / 120pt / 0%</p>
+      <p className={styles.textBold80}>Bold / 80pt / 0%</p>
+      <p className={styles.textBold32}>Bold / 32pt / 0%</p>
+      <p className={styles.textBold24}>Bold / 24pt / 0%</p>
+      <p className={styles.textBold20}>Bold / 20pt / 0%</p>
+      <p className={styles.textBold18}>Bold / 18pt / 0%</p>
+      <p className={styles.textBold16}>Bold / 16pt / 0%</p>
+      <p className={styles.textBold14}>Bold / 14pt / 0%</p>
+      <p className={styles.textBold12}>Bold / 12pt / 0%</p>
+      <p className={styles.textBold10}>Bold / 10pt / 0%</p>
+      <p className={styles.textMedium20}>Medium / 20pt / 0%</p>
+      <p className={styles.textMedium18}>Medium / 18pt / 0%</p>
+      <p className={styles.textMedium16}>Medium / 16pt / 0%</p>
+      <p className={styles.textMedium14}>Medium / 14pt / 0%</p>
+      <p className={styles.textMedium12}>Medium / 12pt / 0%</p>
+      <p className={styles.textMedium10}>Medium / 10pt / 0%</p>
+      <p className={styles.textRegular18}>Regular / 18pt / 0%</p>
+      <p className={styles.textRegular16}>Regular / 16pt / 0%</p>
+      <p className={styles.textRegular14}>Regular / 14pt / 0%</p>
+      <p className={styles.textRegular12}>Regular / 12pt / 0%</p>
+      <p className={styles.textRegular10}>Regular / 10pt / 0%</p>
     </div>
   );
 }
