@@ -29,8 +29,8 @@ export default function ButtonExample() {
       {/* disabled */}
       <Button disabled={true} text="만들기" />
 
-      {/* width 속성 */}
-      <Button width="252px" text="스터디 만들기" />
+      {/* size 속성 */}
+      <Button size="sm" text="스터디 만들기" />
 
       <div
         style={{

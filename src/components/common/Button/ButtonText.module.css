@@ -4,6 +4,7 @@
 
 .text {
   font: var(--typography-500-16);
+  white-space: nowrap;
 }
 
 .button.green .text {
