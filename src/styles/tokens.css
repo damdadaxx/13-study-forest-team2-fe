@@ -11,13 +11,14 @@
   * 규칙: --[color-family]-[color-family]-[color-name]
   * 예: --black-black_414141, --brand-brand_99c08e
   * 
-  * Color Family: black, gray, bg, brand, red, green, yellow, blue, pink
+  * Color Family: black, gray, white, bg, brand, red, green, yellow, blue, pink
   */
 
   --black-black_414141: #414141;
   --gray-gray_818181: #818181;
   --gray-gray_DDDDDD: #ddd;
   --gray-gray_EEEEEE: #eee;
+  --white-white_FFFFFF: #fff;
   --bg-bg_F6F4EF: #f6f4ef;
   --brand-brand_99C08E: #99c08e;
   --red-error_C41013: #c41013;
