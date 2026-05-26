@@ -1,0 +1,66 @@
+/*=================================================
+    헤더
+=================================================*/
+
+/*
+@ 헤더 공통 컴포넌트
+- 모든 페이지에서 사용되는 공통 헤더입니다.
+- showButton props로 스터디 만들기 버튼 표시 여부를 제어합니다.
+*/
+
+.forest-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 220px;
+}
+.forest-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mk-study-btn {
+  width: 252px;
+  height: 58px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--brand-brand_99C08E);
+  font: var(--typography-jeju-400-18);
+  color: #ffffff; /* 추후 토큰 반영 */
+  cursor: pointer;
+}
+
+/* 태블릿: 화면 너비 1023px 이하일 때 */
+@media (max-width: 1023px) {
+  #forest-header {
+    padding: 16px;
+  }
+
+  .mk-study-btn {
+    width: 180px;
+    height: 48px;
+    font-size: 16px;
+  }
+}
+
+/* 모바일: 화면 너비 767px 이하일 때 */
+@media (max-width: 767px) {
+  #forest-header {
+    padding: 12px;
+  }
+
+  .forest-logo {
+    width: 80px;
+  }
+
+  .mk-study-btn {
+    width: 120px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+}
