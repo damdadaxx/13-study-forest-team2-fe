@@ -4,13 +4,12 @@ import styles from '@/components/common/Button/ButtonHabit.module.css';
 
 export default function ButtonHabit({
   className = '',
-  size = 'md', // md: 오늘의 습관/오늘의 집중 버튼, sm: 홈 버튼
   text = '',
   onClick,
   href,
   ...props
 }) {
-  const classNames = `${styles.button} ${styles[size]} ${className}`;
+  const classNames = `${styles.button} ${className}`;
 
   if (href) {
     return (

@@ -20,9 +20,8 @@ export default function Button({
       <Link
         to={href}
         className={classNames}
-        style={{ width: `${width ? width : '100%'}` }}
+        style={{ width }}
         type={type}
-        disabled={disabled}
         onClick={onClick}
         aria-label={`${text} 버튼`}
         {...props}
@@ -36,7 +35,7 @@ export default function Button({
     <>
       <button
         className={classNames}
-        style={{ width: `${width ? width : '100%'}` }}
+        style={{ width }}
         type={type}
         disabled={disabled}
         onClick={onClick}

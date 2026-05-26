@@ -10,7 +10,7 @@ export default function ButtonControllerCircle({
   onClick,
   ...props
 }) {
-  const classNames = `${styles.button} ${styles[variant]} ${styles[color]} ${className}`;
+  const classNames = `${styles.button} ${styles[color]} ${className}`;
 
   return (
     <button
@@ -23,6 +23,7 @@ export default function ButtonControllerCircle({
       <img
         className={styles.icon}
         src={variant === 'primary' ? IcRestart : IcPause}
+        alt={`${variant === 'primary' ? '리셋 버튼' : '정지 버튼'} 아이콘`}
       />
     </button>
   );

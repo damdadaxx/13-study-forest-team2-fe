@@ -11,7 +11,7 @@ export default function ButtonController({
   onClick,
   ...props
 }) {
-  const classNames = `${styles.button} ${styles[variant]} ${styles[color]} ${className}`;
+  const classNames = `${styles.button} ${styles[color]} ${className}`;
 
   return (
     <button
@@ -25,6 +25,7 @@ export default function ButtonController({
       <img
         className={styles.icon}
         src={variant === 'primary' ? IcPlay : IcStop}
+        alt={`${variant === 'primary' ? '재생 버튼' : '정지 버튼'} 아이콘`}
       />
       <p className={styles.text}>
         {variant === 'primary' ? 'start!' : 'stop!'}
