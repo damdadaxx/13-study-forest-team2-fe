@@ -7,23 +7,22 @@ import forestLogo from '@/assets/images/icons/forest-logo.png';
 
 export default function Header({ showButton = true }) {
   return (
-    <header className={styles['forest-header']}>
-      <Link to="/">
-        <img
-          src={forestLogo}
-          alt="forest-logo"
-          className={styles['forest-logo']}
-        />
-      </Link>
-      {showButton && (
-        <Link to="/studies/new">
-          <Button
-            className={styles['mk-study-btn']}
-            width="252px"
-            text="스터디만들기"
+    <header className={styles['forestHeader']}>
+      <div className={styles['headerContainer']}>
+        <Link to="/">
+          <img
+            src={forestLogo}
+            alt="forest-logo"
+            className={styles['forestLogo']}
           />
         </Link>
-      )}
+
+        {showButton && (
+          <Link to="/studies/new" className={styles['mkBtnContainer']}>
+            <Button text="스터디 만들기" />
+          </Link>
+        )}
+      </div>
     </header>
   );
 }

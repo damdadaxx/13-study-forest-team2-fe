@@ -18,12 +18,12 @@ export default function HeaderExample() {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <p>버튼 없는 버전</p>
         <div style={{ position: 'relative', height: '80px' }}>
           <Header showButton={false} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
