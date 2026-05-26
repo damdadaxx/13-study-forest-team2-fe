@@ -7,20 +7,22 @@ import forestLogo from '@/assets/images/icons/forest-logo.png';
 
 export default function Header({ showButton = true }) {
   return (
-    <header className={styles['forestHeader']}>
-      <div className={styles['headerContainer']}>
+    <header className={styles.forestHeader}>
+      <div className={styles.headerContainer}>
         <Link to="/">
           <img
             src={forestLogo}
             alt="forest-logo"
-            className={styles['forestLogo']}
+            className={styles.forestLogo}
           />
         </Link>
 
         {showButton && (
-          <Link to="/studies/new" className={styles['mkBtnContainer']}>
-            <Button text="스터디 만들기" />
-          </Link>
+          <div
+            className={`${styles.mkBtnContainer} ${styles.mkStudyBtnContainer}`}
+          >
+            <Button text="스터디 만들기" href="/studies/new" />
+          </div>
         )}
       </div>
     </header>
