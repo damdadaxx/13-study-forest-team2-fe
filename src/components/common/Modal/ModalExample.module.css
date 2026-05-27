@@ -62,9 +62,32 @@
   gap: 24px;
   justify-content: center;
   padding: 24px 24px 40px 24px;
-  width: 100%; /* 추가 */
+  width: 100%;
 }
 
 .modalBtn {
   width: 282px;
+}
+
+@media (max-width: 767px) {
+  .addInput {
+    width: 256px;
+    height: 54px;
+  }
+
+  .addBtn {
+    width: 312px;
+    height: 54px;
+  }
+
+  .modalBtn {
+    width: 140px;
+    height: 58px;
+    border-radius: 16px;
+    padding: 10px;
+  }
+
+  .footerContainer {
+    gap: 10px;
+  }
 }
