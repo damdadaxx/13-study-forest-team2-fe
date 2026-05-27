@@ -22,5 +22,5 @@ export default function Header({ hasButton = true }) {
         )}
       </div>
     </header>
-  );
+  );  
 }
