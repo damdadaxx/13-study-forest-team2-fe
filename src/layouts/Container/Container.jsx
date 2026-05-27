@@ -11,8 +11,8 @@ export default function Container({ size = 'md', className, children }) {
   const classNames = `${styles.container} ${styles[size]} ${className}`;
 
   return (
-    <main className={classNames}>
+    <section className={classNames}>
       <div className={styles.content}>{children}</div>
-    </main>
+    </section>
   );
 }
