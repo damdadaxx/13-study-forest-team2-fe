@@ -12,6 +12,7 @@ import StudyDetail from '@/pages/studies/StudyDetail';
 import StudyEdit from '@/pages/studies/StudyEdit';
 
 import ButtonExample from '@/components/common/Button/ButtonExample';
+import InputExample from '@/components/common/Input/InputExample';
 
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
 
         {/* TODO: 개발 완료 시 삭제하기 */}
         <Route path="buttons" element={<ButtonExample />} />
+        <Route path="inputs" element={<InputExample />} />
         <Route path="example" element={<Example />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
