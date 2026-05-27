@@ -53,7 +53,7 @@
 
 ---
 
-## 설치 및 실행
+## 🚀 설치 및 실행
 
 ### 1단계: 저장소 클론
 
@@ -88,6 +88,10 @@ npm run dev
 
 브라우저에서 `http://localhost:5173` 접속
 
+---
+
+## 📦 빌드 및 미리보기
+
 ### 빌드
 
 ```bash
@@ -99,6 +103,42 @@ npm run build
 ```bash
 npm run preview
 ```
+
+---
+
+## 🌳 브랜치 전략
+
+### 브랜치 생성 방법
+
+작업할 기능에 맞춰 `dev` 브랜치에서 새 브랜치를 생성합니다.
+
+```bash
+git checkout dev
+git pull origin dev
+git checkout -b feature/{기능명}
+```
+
+### 브랜치 명명 규칙
+
+**형식:** `feature/{기능명}`
+
+**예시:**
+- `feature/init-setting`
+- `feature/habit-page`
+- `feature/seed`
+
+### 브랜치 작업 흐름
+
+1. `dev` 브랜치에서 새 브랜치 생성
+2. 기능 개발 및 커밋
+3. PR 생성
+4. 코드 리뷰 및 Approve
+5. Merge 완료
+
+### 💡 참고사항
+
+- 각 기능은 **별도의 브랜치**에서 독립적으로 개발합니다
+- `main` 브랜치는 배포 가능한 상태만 유지합니다
 
 ---
 

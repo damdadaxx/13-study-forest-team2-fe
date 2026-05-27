@@ -2,11 +2,13 @@ import { Outlet } from 'react-router';
 
 import styles from '@/layouts/MainLayout/MainLayout.module.css';
 
+import Header from '@/components/common/Header/Header';
+
 export default function MainLayout() {
   return (
-    <div className={styles.mainLayout}>
-      {/* Header */}
+    <main className={styles.styles}>
+      <Header />
       <Outlet />
-    </div>
+    </main>
   );
 }
