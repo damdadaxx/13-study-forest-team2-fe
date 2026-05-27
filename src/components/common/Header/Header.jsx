@@ -18,11 +18,7 @@ export default function Header({ hasButton = true }) {
         </Link>
 
         {hasButton && (
-          <div
-            className={`${styles.mkBtnContainer} ${styles.mkStudyBtnContainer}`}
-          >
-            <Button text="스터디 만들기" href="/studies/new" />
-          </div>
+          <Button text="스터디 만들기" size="sm" href="/studies/new" />
         )}
       </div>
     </header>
