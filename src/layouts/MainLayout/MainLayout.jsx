@@ -1,21 +1,14 @@
 import { Outlet } from 'react-router';
 
-import './MainLayout.css';
+import styles from './MainLayout.module.css';
 
-export default function MainLayout({ maxWidthType = 'md' }) {
-  const maxWidthMap = {
-    sm: 'layoutSm', // 상세페이지
-    md: 'layoutMd', // 스터디 상세, 홈
-    lg: 'layoutLg', // 오늘의 집중, 오늘의 습관
-  };
-
-  const currentMaxWidth = maxWidthMap[maxWidthType] || maxWidthMap.md;
+export default function MainLayout({ size = 'md' }) {
+  const classNames = `${styles.layoutMain} ${styles[size]}`;
 
   return (
-    <div className="layoutContainer">
-      {/* Header  */}
-
-      <main className={`layoutMain ${currentMaxWidth}`}>
+    <div className={styles.layoutContainer}>
+      {/* Header 추가 예정 */}
+      <main className={classNames}>
         <Outlet />
       </main>
     </div>
