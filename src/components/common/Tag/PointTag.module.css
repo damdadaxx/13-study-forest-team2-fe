@@ -1,0 +1,59 @@
+.pointTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.small {
+  width: 94px;
+  height: 24px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+.large {
+  width: 116px;
+  height: 35px;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+.dark {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.light {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.pointIcon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.small .pointIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.large .pointIcon {
+  width: 19px;
+  height: 19px;
+}
+
+.pointNumber {
+  white-space: nowrap;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+}
+
+.dark .pointNumber {
+  color: var(--white-white_FFFFFF, #ffffff);
+}
+
+.light .pointNumber {
+  color: var(--black-black_414141, #414141);
+}

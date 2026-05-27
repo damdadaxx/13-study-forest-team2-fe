@@ -1,0 +1,37 @@
+.emojiTag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.emojiTag.small {
+  width: 48px;
+  height: 26px;
+}
+.emojiTag.large {
+  width: 56px;
+  height: 31px;
+}
+
+/* 부모 요소에서 font-size는 상속이 되지만 명시적으로 나눠놨습니다. */
+.emojiTag.small .emoji,
+.emojiTag.small .count {
+  font-size: 12px;
+}
+
+.emojiTag.large .emoji,
+.emojiTag.large .count {
+  font-size: 16px;
+}
+
+.emoji {
+  color: var(--black-black_414141, #414141);
+}
+
+.count {
+  color: var(--white-white_FFFFFF, #ffffff);
+  font-weight: 400;
+}
