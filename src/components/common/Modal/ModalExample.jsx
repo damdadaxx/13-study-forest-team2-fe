@@ -94,7 +94,6 @@ export default function App() {
         </ModalBody>
         <ModalFooter direction="column">
           <button onClick={() => setFormOpen(false)}>수정하러 가기</button>
-          <button onClick={() => setFormOpen(false)}>나가기</button>
         </ModalFooter>
       </Modal>
     </div>
