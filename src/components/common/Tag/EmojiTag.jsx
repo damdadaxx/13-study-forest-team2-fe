@@ -10,7 +10,6 @@ export default function EmojiTag({
   if (!emoji) return null;
 
   const numericCount = Number(count);
-  if (!Number.isFinite(numericCount)) return null;
 
   const classNames = [styles.emojiTag, styles[size], className]
     .filter(Boolean)

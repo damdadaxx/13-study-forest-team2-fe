@@ -13,11 +13,9 @@ export default function PointTag({
   if (typeof point !== 'number' && typeof point !== 'string') return null;
 
   const numericPoint = Number(point);
-
-  if (!Number.isFinite(numericPoint)) return null;
-
   const displayPoint = numericPoint.toLocaleString();
   const iconSrc = size === 'large' ? IcPointLarge : IcPointSmall;
+
   const classNames = [styles.pointTag, styles[size], styles[variant], className]
     .filter(Boolean)
     .join(' ');
