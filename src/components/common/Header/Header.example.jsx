@@ -12,9 +12,8 @@ export default function HeaderExample() {
       }}
     >
       <div>
-        <p>버튼 있는 버전</p>
         <div style={{ position: 'relative', height: '80px' }}>
-          <Header showButton={true} />
+          <Header hasButton={true} />
         </div>
       </div>
 

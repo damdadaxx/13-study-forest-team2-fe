@@ -14,52 +14,41 @@
   position: fixed;
   top: 0;
   left: 0;
+  height: 100px;
 }
 
-.forestLogo {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.headerContainer {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 220px;
+  max-width: 1480px;
+  height: 100%;
+  padding: 0 24px;
+  margin: 0 auto;
 }
-.mkBtnContainer {
-  width: 252px;
+
+.forestLogo {
+  display: block;
+  width: 180px;
+  height: auto;
+  object-fit: cover;
 }
+
 /* 태블릿: 화면 너비 1023px 이하일 때 */
 @media (max-width: 1023px) {
-  .headerContainer {
-    padding: 22px 24px;
-  }
-  .forestLogo {
-    width: 181px;
-    height: 60px;
-  }
-
-  .mkBtnContainer {
-    width: 160x;
+  .mkStudyBtnContainer {
+    width: 160px;
     height: 57px;
   }
 }
 
 /* 모바일: 화면 너비 767px 이하일 때 */
 @media (max-width: 767px) {
-  .headerContainer {
-    padding: 32px 16px;
+  .container {
+    padding: 0 16px;
   }
 
   .forestLogo {
     width: 106px;
-    height: 35px;
-  }
-
-  .mkBtnContainer {
-    width: 106px;
-    height: 36px;
   }
 }

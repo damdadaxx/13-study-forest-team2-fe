@@ -5,19 +5,19 @@ import styles from '@/components/common/Header/Header.module.css';
 
 import forestLogo from '@/assets/images/icons/forest-logo.png';
 
-export default function Header({ showButton = true }) {
+export default function Header({ hasButton = true }) {
   return (
     <header className={styles.forestHeader}>
-      <div className={styles.headerContainer}>
+      <div className={styles.container}>
         <Link to="/">
           <img
             src={forestLogo}
-            alt="forest-logo"
+            alt="공부의 숲 로고 이미지"
             className={styles.forestLogo}
           />
         </Link>
 
-        {showButton && (
+        {hasButton && (
           <div
             className={`${styles.mkBtnContainer} ${styles.mkStudyBtnContainer}`}
           >
