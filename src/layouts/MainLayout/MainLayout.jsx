@@ -6,7 +6,7 @@ import Header from '@/components/common/Header/Header';
 
 export default function MainLayout() {
   return (
-    <main className={styles.styles}>
+    <main className={styles.mainLayout}>
       <Header />
       <Outlet />
     </main>
