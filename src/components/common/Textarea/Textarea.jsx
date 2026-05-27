@@ -8,7 +8,6 @@ export default function Textarea({
   onChange,
   placeholder = '',
   error = '',
-  rows = 4,
   ...props
 }) {
   const hasError = Boolean(error);
@@ -28,7 +27,6 @@ export default function Textarea({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        rows={rows}
         aria-invalid={hasError}
         {...props}
       />
