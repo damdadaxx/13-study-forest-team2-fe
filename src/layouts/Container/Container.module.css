@@ -1,0 +1,30 @@
+/* 전체 레이아웃 */
+
+.container {
+  padding: 0 24px;
+}
+
+.content {
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+/* 오늘의 집중, 오늘의 습관 */
+.container.lg .content {
+  max-width: 1248px;
+}
+/* 스터디 상세, 홈 */
+.container.md .content {
+  max-width: 1200px;
+}
+/* 상세페이지 */
+.container.sm .content {
+  max-width: 696px;
+}
+
+/* 모바일: 화면 너비 767px 이하일 때 */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 16px;
+  }
+}

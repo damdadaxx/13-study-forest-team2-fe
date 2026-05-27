@@ -1,16 +1,12 @@
 import { Outlet } from 'react-router';
 
-import styles from './MainLayout.module.css';
+import styles from '@/layouts/MainLayout/MainLayout.module.css';
 
-export default function MainLayout({ size = 'md' }) {
-  const classNames = `${styles.layoutMain} ${styles[size]}`;
-
+export default function MainLayout() {
   return (
-    <div className={styles.layoutContainer}>
-      {/* Header 추가 예정 */}
-      <main className={classNames}>
-        <Outlet />
-      </main>
+    <div className={styles.mainLayout}>
+      {/* Header */}
+      <Outlet />
     </div>
   );
 }
