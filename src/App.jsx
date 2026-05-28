@@ -12,7 +12,9 @@ import StudyDetail from '@/pages/studies/StudyDetail';
 import StudyEdit from '@/pages/studies/StudyEdit';
 
 import ButtonExample from '@/components/common/Button/ButtonExample';
+import CardExample from '@/components/common/Card/CardExample.jsx';
 import ModalExample from '@/components/common/Modal/ModalExample';
+import TagExample from '@/components/common/Tag/TagExample.jsx';
 
 import './App.css';
 
@@ -39,6 +41,7 @@ function App() {
         <Route path="modal" element={<ModalExample />} />
         <Route path="example" element={<Example />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="cards" element={<CardExample />} />
       </Routes>
     </div>
   );

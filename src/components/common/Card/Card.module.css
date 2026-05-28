@@ -1,0 +1,47 @@
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+.content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+.card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 54px;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.emojis {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.titleAndPoint {
+  font: var(--typography-700-18);
+}
+.point {
+  font: var(--typography-500-12);
+}
+.dayCount {
+  font: var(--typography-400-14);
+}
+.description {
+  font: var(--typography-400-24);
+}
