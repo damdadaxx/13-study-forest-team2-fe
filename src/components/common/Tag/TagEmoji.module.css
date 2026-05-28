@@ -7,24 +7,23 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.emojiTag.small {
-  width: 48px;
+.emojiTag.sm {
   height: 26px;
 }
-.emojiTag.large {
-  width: 56px;
+.emojiTag.lg {
   height: 31px;
 }
 
-/* 부모 요소에서 font-size는 상속이 되지만 명시적으로 나눠놨습니다. */
-.emojiTag.small .emoji,
-.emojiTag.small .count {
+.emojiTag.sm .emoji,
+.emojiTag.sm .count {
   font-size: 12px;
+  line-height: calc(14 / 12);
 }
 
-.emojiTag.large .emoji,
-.emojiTag.large .count {
+.emojiTag.lg .emoji,
+.emojiTag.lg .count {
   font-size: 16px;
+  line-height: calc(19 / 16);
 }
 
 .emoji {
