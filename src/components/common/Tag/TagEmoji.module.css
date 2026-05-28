@@ -1,5 +1,5 @@
 .emojiTag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 6px 8px;

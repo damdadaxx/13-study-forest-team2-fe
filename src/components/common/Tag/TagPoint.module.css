@@ -1,5 +1,5 @@
 .pointTag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
   border-radius: 50px;
@@ -51,7 +51,6 @@
 .pointNumber {
   white-space: nowrap;
   font-weight: 500;
-  font-style: normal;
 }
 
 .dark .pointNumber {
