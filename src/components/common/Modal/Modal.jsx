@@ -39,9 +39,9 @@ export default function Modal({
       onClick={(e) => e.target === e.currentTarget && onClose?.()}
     >
       <div className={styles.modalCard}>
-        {/* 헤더 — 데스크톱 닫기 버튼 */}
         <div className={styles.modalHeader}>
           <p className={styles.modalTitle}>{title}</p>
+          {/* 헤더 — 데스크톱 닫기 버튼 */}
           {hasCloseBtn && (
             <button
               className={`${styles.closeBtn} ${styles.closeDesktop}`}
@@ -59,6 +59,7 @@ export default function Modal({
         <div className={styles.modalFooter}>
           {btnComponents}
           {hasCloseBtn && (
+            // 모바일 닫기 버튼
             <button
               className={`${styles.closeBtn} ${styles.closeMobile}`}
               onClick={onClose}
