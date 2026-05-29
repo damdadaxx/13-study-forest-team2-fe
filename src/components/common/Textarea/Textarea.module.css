@@ -1,13 +1,7 @@
-.field {
+.textareaWrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.label {
-  font: var(--typography-600-18);
-  color: var(--black-black_414141);
-  margin-bottom: 16px;
 }
 
 .textarea {
@@ -44,10 +38,6 @@
 
 /* 반응형 모바일 */
 @media (max-width: 767px) {
-  .label {
-    font: var(--typography-600-16);
-  }
-
   .textarea {
     font: var(--typography-400-14);
   }

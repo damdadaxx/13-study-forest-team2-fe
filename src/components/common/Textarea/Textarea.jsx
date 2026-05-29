@@ -2,8 +2,6 @@ import styles from '@/components/common/Textarea/Textarea.module.css';
 
 export default function Textarea({
   className = '',
-  label = '',
-  id,
   value,
   onChange,
   placeholder = '',
@@ -14,15 +12,8 @@ export default function Textarea({
   const textareaClassNames = `${styles.textarea} ${hasError ? styles.error : ''}`;
 
   return (
-    <div className={`${styles.field} ${className}`}>
-      {label && (
-        <label className={styles.label} htmlFor={id}>
-          {label}
-        </label>
-      )}
-
+    <div className={`${styles.textareaWrapper} ${className}`}>
       <textarea
-        id={id}
         className={textareaClassNames}
         value={value}
         onChange={onChange}
