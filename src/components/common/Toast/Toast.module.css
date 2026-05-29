@@ -1,25 +1,19 @@
 .toastContainer {
-  /* 토스트 위치 설정 */
   position: fixed;
   bottom: 40px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 9999;
-
+  right: 50%;
+  transform: translate(50%, 0);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: max-content;
   border-radius: 12px;
+  font: var(--typography-500-14);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 
-  /* 폰트 디자인 반응형 처리 */
-  font-family: var(--font-family, 'NanumSquare', sans-serif);
-  font-size: 14px;
-  font-weight: 500;
-
-  /* 3초 설정 */
-  animation: toastLifeCycle 3s ease-in-out forwards;
+  /* 토스트 애니메이션 초 설정 */
+  animation: toastAnimation 3s ease-in-out forwards;
+  z-index: 2000;
 }
 
 .message {
@@ -32,49 +26,38 @@
   padding: 14px 18px;
 }
 .success .message {
-  color: var(--green-green_text_578246);
+  color: #578246;
 }
 
-/* 🟥 경고 토스트  */
+/* 🟥 경고 토스트 */
 .warning {
-  background-color: var(--pink-pink_FDE0E9);
+  background-color: #fde0e9;
   padding: 14px 28px;
 }
 .warning .message {
-  color: var(--red-red_F50E0E);
+  color: #f50e0e;
 }
 
-/* 반응형 */
-@media (max-width: 768px) {
-  .toastContainer {
-    font-size: 12px;
-  }
-  .success {
-    padding: 10px 14px;
-  }
-  .warning {
-    padding: 10px 20px;
-  }
-}
+/* 반응형처리 */
 
-/* 통합 애니메이션 */
-@keyframes toastLifeCycle {
+/* 토스트 애니메이션 */
+@keyframes toastAnimation {
   0% {
-    transform: translate(-50%, 15px);
+    transform: translate(50%, 40px);
     opacity: 0;
   }
   10% {
-    transform: translate(-50%, 0);
+    transform: translate(50%, 0);
     opacity: 1;
   }
 
   90% {
-    transform: translate(-50%, 0);
+    transform: translate(50%, 0);
     opacity: 1;
   }
 
   100% {
-    transform: translate(-50%, 15px);
+    transform: translate(50%, 40px);
     opacity: 0;
   }
 }
