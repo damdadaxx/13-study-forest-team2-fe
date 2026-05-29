@@ -36,7 +36,7 @@ export default function InputExample() {
 
       {/* 에러 상태 */}
       <Input
-        label="스터이 이름 (에러)"
+        label="스터디 이름 (에러)"
         id="name-error"
         value=""
         onChange={() => {}}

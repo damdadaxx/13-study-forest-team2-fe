@@ -71,6 +71,12 @@
   --typography-500-10: 500 10px / calc(14 / 10) 'Pretendard', sans-serif;
 
   /* ========================================
+      Font Weight 600
+      ======================================== */
+  --typography-600-18: 600 18px / calc(21 / 18) 'Pretendard', sans-serif;
+  --typography-600-16: 600 16px / calc(19 / 16) 'Pretendard', sans-serif;
+
+  /* ========================================
       Font Weight 700
       ======================================== */
 
