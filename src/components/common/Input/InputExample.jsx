@@ -27,61 +27,56 @@ export default function InputExample() {
       <h2>Input / Textarea 미리보기</h2>
 
       {/* 기본 */}
-      <Label text="스터디 이름">
-        <Input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="스터디 이름을 입력해 주세요"
-        />
-      </Label>
+      <Input
+        label="스터디 이름"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="스터디 이름을 입력해 주세요."
+      />
 
       {/* 에러 상태 */}
-      <Label text="스터디 이름 (에러)">
-        <Input
-          value=""
-          onChange={() => {}}
-          placeholder="스터디 이름을 입력해 주세요"
-          error="스터디 이름을 입력해주세요"
-        />
-      </Label>
+      <Input
+        label="스터디 이름 (에러)"
+        value=""
+        onChange={() => {}}
+        placeholder="스터디 이름을 입력해 주세요"
+        error="스터디 이름을 입력해주세요"
+      />
 
       {/* 우측 아이콘 (비번 토글) */}
-      <Label text="비밀번호">
-        <Input
-          type={showPw ? 'text' : 'password'}
-          value={pw}
-          onChange={(e) => setPw(e.target.value)}
-          placeholder="비밀번호를 입력해 주세요"
-          rightIcon={
-            <img
-              src={showPw ? visibilityOn : visibilityOff}
-              alt={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
-              width={24}
-              height={24}
-            />
-          }
-          onRightIconClick={() => setShowPw((v) => !v)}
-        />
-      </Label>
+      <Input
+        label="비밀번호"
+        type={showPw ? 'text' : 'password'}
+        value={pw}
+        onChange={(e) => setPw(e.target.value)}
+        placeholder="비밀번호를 입력해 주세요"
+        rightIcon={
+          <img
+            src={showPw ? visibilityOn : visibilityOff}
+            alt={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
+            width={24}
+            height={24}
+          />
+        }
+        onRightIconClick={() => setShowPw((v) => !v)}
+      />
 
       {/* Textarea */}
-      <Label text="소개">
-        <Textarea
-          value={intro}
-          onChange={(e) => setIntro(e.target.value)}
-          placeholder="소개를 입력해 주세요"
-        />
-      </Label>
+      <Textarea
+        label="소개"
+        value={intro}
+        onChange={(e) => setIntro(e.target.value)}
+        placeholder="소개를 입력해 주세요"
+      />
 
       {/* Textarea 에러 */}
-      <Label text="소개 (에러)">
-        <Textarea
-          value=""
-          onChange={() => {}}
-          placeholder="소개를 입력해 주세요"
-          error="소개를 입력해주세요"
-        />
-      </Label>
+      <Textarea
+        label="소개 (에러)"
+        value=""
+        onChange={() => {}}
+        placeholder="소개를 입력해 주세요"
+        error="소개를 입력해주세요"
+      />
 
       {/* 단독 라벨 - input 없이 라벨만 (배경 선택 케이스) */}
       <Label text="배경을 선택해주세요" />

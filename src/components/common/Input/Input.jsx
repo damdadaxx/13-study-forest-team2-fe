@@ -1,7 +1,9 @@
 import styles from '@/components/common/Input/Input.module.css';
+import Label from '@/components/common/Label/Label';
 
 export default function Input({
   className = '',
+  label = '',
   type = 'text',
   value,
   onChange,
@@ -15,7 +17,7 @@ export default function Input({
   const inputClassNames = `${styles.input} ${hasError ? styles.error : ''} ${rightIcon ? styles.hasIcon : ''}`;
 
   return (
-    <div className={`${styles.inputField} ${className}`}>
+    <Label text={label} className={className}>
       <div className={styles.inputWrapper}>
         <input
           className={inputClassNames}
@@ -24,6 +26,7 @@ export default function Input({
           onChange={onChange}
           placeholder={placeholder}
           aria-invalid={hasError}
+          aria-describedby={hasError ? 'error-message' : undefined}
           {...props}
         />
         {rightIcon && (
@@ -31,13 +34,16 @@ export default function Input({
             type="button"
             className={styles.iconButton}
             onClick={onRightIconClick}
-            tabIndex={-1}
           >
             {rightIcon}
           </button>
         )}
       </div>
-      {hasError && <p className={styles.errorMessage}>{error}</p>}
-    </div>
+      {hasError && (
+        <p id="error-message" className={styles.errorMessage}>
+          {error}
+        </p>
+      )}
+    </Label>
   );
 }

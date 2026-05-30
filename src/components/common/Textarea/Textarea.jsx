@@ -1,7 +1,9 @@
+import Label from '@/components/common/Label/Label';
 import styles from '@/components/common/Textarea/Textarea.module.css';
 
 export default function Textarea({
   className = '',
+  label = '',
   value,
   onChange,
   placeholder = '',
@@ -12,17 +14,22 @@ export default function Textarea({
   const textareaClassNames = `${styles.textarea} ${hasError ? styles.error : ''}`;
 
   return (
-    <div className={`${styles.textareaWrapper} ${className}`}>
+    <Label text={label} className={className}>
       <textarea
         className={textareaClassNames}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
         aria-invalid={hasError}
+        aria-describedby={hasError ? 'error-message' : undefined}
         {...props}
       />
 
-      {hasError && <p className={styles.errorMessage}>{error}</p>}
-    </div>
+      {hasError && (
+        <p id="error-message" className={styles.errorMessage}>
+          {error}
+        </p>
+      )}
+    </Label>
   );
 }
