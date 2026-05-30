@@ -25,6 +25,9 @@ export default function ModalExample() {
     updated[index] = value;
     setHabits(updated);
   };
+  const handleHabitDelete = (index) => {
+    setHabits(habits.filter((_, i) => i !== index));
+  };
 
   const handleOpenModal = (modalName) => {
     setModals((prev) => ({ ...prev, [modalName]: true }));
