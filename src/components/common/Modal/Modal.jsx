@@ -9,25 +9,25 @@ export default function Modal({
   onClose,
   hasCloseBtn = false,
   children,
-  btnComponents, //
+  btnComponents, //버튼 컴포넌트
 }) {
-  // Escape 키 닫기
   useEffect(() => {
     if (!isOpen) return;
-    const handler = (e) => {
-      if (e.key === 'Escape') onClose?.();
-    };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
-  }, [isOpen, onClose]);
 
-  // 스크롤 잠금
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    // Escape 키 닫기
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose?.(e);
+    };
+
+    // 스크롤 잠금
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
     return () => {
+      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -36,7 +36,9 @@ export default function Modal({
   return createPortal(
     <div
       className={styles.modalBackDrop}
-      onClick={(e) => e.target === e.currentTarget && onClose?.()}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose?.();
+      }}
     >
       <div className={styles.modalCard}>
         <div className={styles.modalHeader}>
@@ -57,16 +59,18 @@ export default function Modal({
 
         {/* 푸터 — 모바일 닫기 버튼 포함 */}
         <div className={styles.modalFooter}>
-          {btnComponents}
-          {hasCloseBtn && (
-            // 모바일 닫기 버튼
-            <button
-              className={`${styles.closeBtn} ${styles.closeMobile}`}
-              onClick={onClose}
-            >
-              나가기
-            </button>
-          )}
+          <div className={styles.buttons}>
+            {btnComponents}
+            {/*  모바일 닫기 버튼 */}
+            {hasCloseBtn && (
+              <button
+                className={`${styles.closeBtn} ${styles.closeMobile}`}
+                onClick={onClose}
+              >
+                나가기
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>,
