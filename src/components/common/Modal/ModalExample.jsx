@@ -1,13 +1,9 @@
 import { useState } from 'react';
 
 import Button from '@/components/common/Button/Button.jsx';
-import Input from '@/components/common/Input/Input.jsx';
-import Label from '@/components/common/Label/Label.jsx';
 import styles from '@/components/common/Modal/ModalExample.module.css';
 
 import trash from '@/assets/images/icons/ic_trash.svg';
-import visibilityOff from '@/assets/images/icons/ic_visibility_off.svg';
-import visibilityOn from '@/assets/images/icons/ic_visibility_on.svg';
 
 import Modal from './Modal.jsx';
 
@@ -138,23 +134,7 @@ export default function ModalExample() {
         }
       >
         <p>권한이 필요해요!</p>
-        <Label text="비밀번호">
-          <Input
-            type={showPw ? 'text' : 'password'}
-            value={pw}
-            onChange={(e) => setPw(e.target.value)}
-            placeholder="비밀번호를 입력해 주세요"
-            rightIcon={
-              <img
-                src={showPw ? visibilityOn : visibilityOff}
-                alt={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
-                width={24}
-                height={24}
-              />
-            }
-            onRightIconClick={() => setShowPw((v) => !v)}
-          />
-        </Label>
+        <input type="password" placeholder="비밀번호를 입력해 주세요" />
       </Modal>
     </div>
   );

@@ -12,7 +12,6 @@ import StudyDetail from '@/pages/studies/StudyDetail';
 import StudyEdit from '@/pages/studies/StudyEdit';
 
 import ButtonExample from '@/components/common/Button/ButtonExample';
-import InputExample from '@/components/common/Input/InputExample';
 import ModalExample from '@/components/common/Modal/ModalExample';
 
 import './App.css';
@@ -38,7 +37,6 @@ function App() {
 
         <Route path="buttons" element={<ButtonExample />} />
         <Route path="modal" element={<ModalExample />} />
-        <Route path="inputs" element={<InputExample />} />
         <Route path="example" element={<Example />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
