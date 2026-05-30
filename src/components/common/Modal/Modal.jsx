@@ -55,22 +55,20 @@ export default function Modal({
         </div>
 
         {/* 바디 */}
-        <div className={styles.modalBody}>{children}</div>
+        <div>{children}</div>
 
         {/* 푸터 — 모바일 닫기 버튼 포함 */}
         <div className={styles.modalFooter}>
-          <div className={styles.buttons}>
-            {btnComponents}
-            {/*  모바일 닫기 버튼 */}
-            {hasCloseBtn && (
-              <button
-                className={`${styles.closeBtn} ${styles.closeMobile}`}
-                onClick={onClose}
-              >
-                나가기
-              </button>
-            )}
-          </div>
+          <div className={styles.buttons}>{btnComponents}</div>
+          {/*  모바일 닫기 버튼 */}
+          {hasCloseBtn && (
+            <button
+              className={`${styles.closeBtn} ${styles.closeMobile}`}
+              onClick={onClose}
+            >
+              나가기
+            </button>
+          )}
         </div>
       </div>
     </div>,

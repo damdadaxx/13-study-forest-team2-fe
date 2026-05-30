@@ -13,8 +13,6 @@ export default function ModalExample() {
     formModal: false,
   });
   const [habits, setHabits] = useState([]);
-  const [pw, setPw] = useState('');
-  const [showPw, setShowPw] = useState(false);
 
   const handleHabitChange = (index, value) => {
     const updated = [...habits];
