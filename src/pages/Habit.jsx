@@ -1,3 +1,5 @@
+import Container from '@/layouts/Container/Container';
+
 export default function Habit() {
-  return <div>오늘의 습관 페이지</div>;
+  return <Container>오늘의 습관 페이지</Container>;
 }

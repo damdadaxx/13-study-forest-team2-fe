@@ -1,3 +1,5 @@
+import Container from '@/layouts/Container/Container';
+
 export default function Focus() {
-  return <div>오늘의 집중 페이지</div>;
+  return <Container>오늘의 집중 페이지</Container>;
 }
