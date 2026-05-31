@@ -40,8 +40,8 @@ function App() {
         <Route path="buttons" element={<ButtonExample />} />
         <Route path="modal" element={<ModalExample />} />
         <Route path="example" element={<Example />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="cards" element={<CardExample />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

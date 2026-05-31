@@ -1,40 +1,32 @@
-import Card from '@/components/common/Card/Card';
+import Card from '@/components/common/Card/Card.jsx';
 
 // TODO: 1차 개발 완료 전에 삭제하기
 export default function CardExample() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '20px',
-        padding: '50px',
-        width: '400px',
-      }}
-    >
+    <div style={{ width: '100%', display: 'flex', gap: '5px' }}>
       <Card
         nickname="훈민"
         title="개발"
-        totalPoint={100}
-        dayCount={62}
-        description="스터디 설명입니다."
+        point={120}
+        dayCount={60}
+        description="소개소개소개소개두줄이 넘어도두줄만보이게했씁니다두줄세줄두세줄두줄세줄두줄세줄두세줄두줄세줄두줄세줄두세줄두줄세줄두줄세줄두세줄두줄세줄"
         emojiAndCount={[
-          { emoji: '🔥', count: 3 },
-          { emoji: '⭐', count: 3 },
-          { emoji: '💪', count: 2 },
+          { emoji: '👩🏻‍💻', count: 5 },
+          { emoji: '👩🏻‍💻', count: 4 },
+          { emoji: '👩🏻‍💻', count: 3 },
         ]}
         background="img1"
       />
       <Card
-        nickname="정음"
-        title="행정"
-        totalPoint={200}
-        dayCount={34}
-        description="스터디 설명입니다."
+        nickname="훈민"
+        title="개발"
+        point={120}
+        dayCount={60}
+        description="소개소개소개소개"
         emojiAndCount={[
-          { emoji: '📚', count: 5 },
-          { emoji: '🔥', count: 3 },
-          { emoji: '⭐', count: 3 },
+          { emoji: '👩🏻‍💻', count: 5 },
+          { emoji: '👩🏻‍💻', count: 4 },
+          { emoji: '👩🏻‍💻', count: 3 },
         ]}
         background="img5"
       />
