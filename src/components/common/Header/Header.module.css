@@ -11,7 +11,8 @@
 .forestHeader {
   width: 100%;
   max-height: 100px;
-  position: fixed;
+  position: sticky;
+  z-index: var(--z-index-header);
   top: 0;
   left: 0;
   height: 100px;
