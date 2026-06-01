@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 
 import Example from '@/pages/Example';
-import Focus from '@/pages/Focus';
+import Focus from '@/pages/Focus/Focus';
 import Habit from '@/pages/Habit';
 import Main from '@/pages/Main';
 import NotFound from '@/pages/NotFound';
@@ -30,10 +30,10 @@ function App() {
             <Route path="new" element={<StudyCreate />} />
             <Route path=":studyId/edit" element={<StudyEdit />} />
             <Route path=":studyId" element={<StudyDetail />} />
+            <Route path=":studyId/focus" element={<Focus />} />
           </Route>
 
           <Route path="habits" element={<Habit />} />
-          <Route path="focus" element={<Focus />} />
         </Route>
 
         {/* TODO: 개발 완료 시 삭제하기 */}
