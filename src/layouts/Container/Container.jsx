@@ -1,13 +1,15 @@
+import { useLocation } from 'react-router';
+
 import styles from '@/layouts/Container/Container.module.css';
 
-/**
- * size Props
- * 1. sm : 1248px - 오늘의 집중, 오늘의 습관
- * 2. md (Default) : 1200px - 스터디 상세, 홈
- * 3. lg : 696px - 상세페이지
- */
+import { CONTAINER_RULES } from '@/constants/constants.js';
 
-export default function Container({ size = 'md', className, children }) {
+export default function Container({ className, children }) {
+  const location = useLocation();
+  const size =
+    CONTAINER_RULES.find((rule) => rule.pattern.test(location.pathname))
+      ?.size || 'md';
+
   const classNames = `${styles.container} ${styles[size]} ${className}`;
 
   return (

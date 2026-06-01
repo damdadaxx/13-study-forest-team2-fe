@@ -36,9 +36,10 @@ function App() {
         </Route>
 
         {/* TODO: 개발 완료 시 삭제하기 */}
-        <Route path="tags" element={<TagExample />} />
+
         <Route path="buttons" element={<ButtonExample />} />
         <Route path="inputs" element={<InputExample />} />
+        <Route path="modal" element={<ModalExample />} />
         <Route path="example" element={<Example />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
