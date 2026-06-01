@@ -13,6 +13,7 @@ import StudyEdit from '@/pages/studies/StudyEdit';
 
 import ButtonExample from '@/components/common/Button/ButtonExample';
 import InputExample from '@/components/common/Input/InputExample';
+import ModalExample from '@/components/common/Modal/ModalExample';
 import TagExample from '@/components/common/Tag/TagExample.jsx';
 
 import './App.css';
