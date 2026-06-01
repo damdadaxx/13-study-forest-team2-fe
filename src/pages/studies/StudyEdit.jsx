@@ -1,3 +1,5 @@
+import Container from '@/layouts/Container/Container';
+
 export default function StudyEdit() {
-  return <div>스터디 수정 페이지</div>;
+  return <Container>스터디 수정 페이지</Container>;
 }

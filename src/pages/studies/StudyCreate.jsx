@@ -1,3 +1,5 @@
+import Container from '@/layouts/Container/Container';
+
 export default function StudyCreate() {
-  return <div>스터디 생성 페이지</div>;
+  return <Container>스터디 생성 페이지</Container>;
 }

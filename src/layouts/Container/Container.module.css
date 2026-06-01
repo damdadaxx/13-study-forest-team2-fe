@@ -5,7 +5,7 @@
 }
 
 .content {
-  min-height: 100vh;
+  padding: 140px 0 100px;
   margin: 0 auto;
 }
 
@@ -22,9 +22,19 @@
   max-width: 696px;
 }
 
+/* 테블릿: 화면 너비 1023px 이하일 때 */
+@media (max-width: 1023px) {
+  .content {
+    padding: 120px 0 100px;
+  }
+}
+
 /* 모바일: 화면 너비 767px 이하일 때 */
 @media (max-width: 767px) {
   .container {
     padding: 0 16px;
+  }
+  .content {
+    padding: 120px 0 80px;
   }
 }
