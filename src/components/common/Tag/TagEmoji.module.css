@@ -1,4 +1,6 @@
 .emojiTag {
+  width: fit-content;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 5px;
