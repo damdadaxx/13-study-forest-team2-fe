@@ -10,22 +10,30 @@ import trash from '@/assets/images/icons/ic_trash.svg';
 export default function HabitModal({ isOpen, onClose }) {
   const [habits, setHabits] = useState([]);
   const [error, setError] = useState('');
+
   const handleError = () => {
     if (habits.length > 0 && habits[habits.length - 1].trim() === '') {
       setError('습관을 입력해주세요.');
       return;
     }
+
     setError('');
     setHabits([...habits, '']);
   };
+
   const handleHabitChange = (index, value) => {
     const updated = [...habits];
     updated[index] = value;
     setHabits(updated);
+
+    if (error) setError(''); // 입력하면 에러 초기화
   };
+
   const handleHabitDelete = (index) => {
     setHabits(habits.filter((_, i) => i !== index));
+    if (error) setError('');
   };
+
   return (
     <Modal
       title="습관 목록"
@@ -54,12 +62,13 @@ export default function HabitModal({ isOpen, onClose }) {
         {habits.map((habit, i) => (
           <div key={i} className={styles.inputContainer}>
             <input
-              className={`${styles.habitInput} ${error ? styles.shake : ''}`}
+              className={`${styles.habitInput} ${
+                error && i === habits.length - 1 ? styles.shake : ''
+              }`}
               value={habit}
               onChange={(e) => handleHabitChange(i, e.target.value)}
               placeholder={`${i + 1}번째 습관을 추가해주세요`}
               maxLength={20}
-              minLength={1}
             />
             <button
               onClick={() => handleHabitDelete(i)}
@@ -70,8 +79,10 @@ export default function HabitModal({ isOpen, onClose }) {
             </button>
           </div>
         ))}
+
         <div className={styles.btnContainer}>
           {error && <p className={styles.errorMsg}>{error}</p>}
+
           <button
             className={styles.addBtn}
             onClick={handleError}
