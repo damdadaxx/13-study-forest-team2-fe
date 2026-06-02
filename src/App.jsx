@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 
 import Example from '@/pages/Example';
+import Focus from '@/pages/Focus';
+import Habit from '@/pages/habits/Habit';
 import Focus from '@/pages/focus/Focus';
 import Habit from '@/pages/Habit';
 import Main from '@/pages/Main';
