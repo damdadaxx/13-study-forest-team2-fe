@@ -28,8 +28,8 @@ export default function Card({
             size="sm"
             point={point}
           />
-          <div className={styles.dayCount}>{dayCount}일째 진행 중</div>
         </div>
+        <div className={styles.dayCount}>{dayCount}일째 진행 중</div>
         <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.bottom}>
