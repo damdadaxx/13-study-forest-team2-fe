@@ -83,13 +83,11 @@ export default function HabitModal({ isOpen, onClose }) {
         <div className={styles.btnContainer}>
           {error && <p className={styles.errorMsg}>{error}</p>}
 
-          <button
-            className={styles.addBtn}
-            onClick={handleError}
-            disabled={habits.length >= 8}
-          >
-            <span style={{ fontSize: '24px' }}>+</span>
-          </button>
+          {habits.length < 8 && (
+            <button className={styles.addBtn} onClick={handleError}>
+              <span style={{ fontSize: '24px' }}>+</span>
+            </button>
+          )}
         </div>
       </div>
     </Modal>
