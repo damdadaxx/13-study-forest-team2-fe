@@ -1,0 +1,67 @@
+.toastContainer {
+  position: fixed;
+  bottom: 40px;
+  right: 50%;
+  transform: translate(50%, 0);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  border-radius: 12px;
+
+  font: var(--typography-500-16);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+
+  /* 토스트 애니메이션 초 설정 */
+  animation: toastAnimation 3s ease-in-out forwards;
+
+  z-index: var(--z-index-toast);
+}
+
+/* 🟩 성공 토스트 */
+.success {
+  color: var(--green-green_text_578246);
+  background-color: var(--green-green_E1EDDE);
+  padding: 14px 18px;
+}
+
+/* 🟥 경고 토스트 */
+.warning {
+  padding: 14px 28px;
+  color: var(--red-red_F50E0E);
+  background-color: var(--pink-pink_FDE0E9);
+}
+/* 반응형 */
+@media (max-width: 767px) {
+  .toastContainer {
+    font: var(--typography-500-14);
+  }
+  .success {
+    padding: 14px 18px;
+  }
+  .warning {
+    padding: 14px 28px;
+  }
+}
+
+/* 토스트 애니메이션 */
+@keyframes toastAnimation {
+  0% {
+    transform: translate(50%, 40px);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(50%, 0);
+    opacity: 1;
+  }
+
+  90% {
+    transform: translate(50%, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(50%, 40px);
+    opacity: 0;
+  }
+}

@@ -3,11 +3,29 @@
   @ 예시 파일
   * 폰트, 컬러 스타일 적용
 */
+import { useState } from 'react';
+
 import styles from '@/pages/Example.module.css';
 
+import Button from '@/components/common/Button/Button';
+import Toast from '@/components/common/Toast/Toast';
+
 export default function Example() {
+  const [show, setShow] = useState(false);
+
+  const handleClick = () => {
+    setShow(true);
+  };
+
   return (
     <div>
+      <Button text="모달오픈버튼" onClick={handleClick} />
+      <Toast
+        variant="warning"
+        message="등록에 성공했습니다."
+        isDisplay={show}
+        onClose={() => setShow(false)}
+      />
       <h2 className={styles.textBold32}>[Typography-제주돌담체!]</h2>
       <p className={styles.textJejuNormal18}>
         Efjejudoldam / Normal / 18pt / 0%
