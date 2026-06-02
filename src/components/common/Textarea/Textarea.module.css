@@ -1,0 +1,38 @@
+.textarea {
+  width: 100%;
+  height: 98px;
+  padding: 15px 20px 14px;
+  border: 1px solid var(--gray-gray_DDDDDD);
+  border-radius: 15px;
+  background-color: var(--white-white_FFFFFF);
+  overflow-y: auto;
+  font: var(--typography-400-16);
+  color: var(--black-black_414141);
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: var(--gray-gray_818181);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--brand-brand_99C08E);
+}
+
+.textarea.error {
+  border-color: var(--red-error_C41013);
+}
+
+.errorMessage {
+  font: var(--typography-400-14);
+  color: var(--red-error_C41013);
+  margin-top: 8px;
+}
+
+/* 반응형 모바일 */
+@media (max-width: 767px) {
+  .textarea {
+    font: var(--typography-400-14);
+  }
+}

@@ -43,7 +43,7 @@
  * 규칙2: --typography-jeju-[weight]-[size]
  * 예: --typography-jeju-400-18
  * 
- * Weight: 400, 500, 700, 800
+ * Weight: 400, 500, 600, 700, 800
  * Size: 10, 12, 14, 16, 18, 20, 24, 28, 32, 80, 120, 150
  */
   /* ========================================
@@ -69,6 +69,12 @@
   --typography-500-14: 500 14px / calc(17 / 14) 'Pretendard', sans-serif;
   --typography-500-12: 500 12px / calc(14 / 12) 'Pretendard', sans-serif;
   --typography-500-10: 500 10px / calc(14 / 10) 'Pretendard', sans-serif;
+
+  /* ========================================
+      Font Weight 600
+      ======================================== */
+  --typography-600-18: 600 18px / calc(21 / 18) 'Pretendard', sans-serif;
+  --typography-600-16: 600 16px / calc(19 / 16) 'Pretendard', sans-serif;
 
   /* ========================================
       Font Weight 700

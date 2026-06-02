@@ -1,0 +1,17 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label {
+  font: var(--typography-600-18);
+  color: var(--black-black_414141);
+  margin-bottom: 16px;
+}
+
+@media (max-width: 767px) {
+  .label {
+    font: var(--typography-600-16);
+  }
+}

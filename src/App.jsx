@@ -12,8 +12,10 @@ import StudyDetail from '@/pages/studies/StudyDetail';
 import StudyEdit from '@/pages/studies/StudyEdit';
 
 import ButtonExample from '@/components/common/Button/ButtonExample';
+import InputExample from '@/components/common/Input/InputExample';
 import CardExample from '@/components/common/Card/CardExample.jsx';
 import ModalExample from '@/components/common/Modal/ModalExample';
+import TagExample from '@/components/common/Tag/TagExample.jsx';
 
 import './App.css';
 
@@ -37,6 +39,7 @@ function App() {
         {/* TODO: 개발 완료 시 삭제하기 */}
 
         <Route path="buttons" element={<ButtonExample />} />
+        <Route path="inputs" element={<InputExample />} />
         <Route path="modal" element={<ModalExample />} />
         <Route path="example" element={<Example />} />
         <Route path="cards" element={<CardExample />} />
