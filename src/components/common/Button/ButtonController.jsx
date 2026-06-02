@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import styles from '@/components/common/Button/ButtonController.module.css';
 
 import IcPlay from '@/assets/images/icons/ic_play.svg';
@@ -11,7 +13,11 @@ export default function ButtonController({
   onClick,
   ...props
 }) {
-  const classNames = `${styles.button} ${styles[color]} ${className}`;
+  const classNames = clsx(
+    styles.button, // 기본클래스
+    styles[color], // 색상에 따라 적용되는 클래스
+    className, // 페이지 내에서 적용하는 클래스
+  );
 
   return (
     <button

@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import styles from '@/components/common/Card/Card.module.css';
 import TagEmoji from '@/components/common/Tag/TagEmoji.jsx';
 import TagPoint from '@/components/common/Tag/TagPoint.jsx';
@@ -15,7 +17,11 @@ export default function Card({
 
   return (
     <div
-      className={`${styles.card} ${styles[background]} ${isImageBg ? styles.dimmed : ''}`}
+      className={clsx(
+        styles.card, // 기본 클래스
+        styles[background], // background prop에 따른 스타일
+        isImageBg && styles.dimmed, // 조건부 dimmed 스타일
+      )}
     >
       <div className={styles.top}>
         <div className={styles.titleBox}>
