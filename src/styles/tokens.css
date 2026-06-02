@@ -112,7 +112,7 @@
   * 규칙: --z-index-[component-name]
   * 계층 구조 (위에 갈수록 높음)
   */
-
+  --z-index-toast: 1100;
   --z-index-modal: 1000;
   --z-index-header: 900;
 }

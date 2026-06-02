@@ -1,0 +1,143 @@
+.card {
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 312px;
+  height: 243px;
+  min-height: 180px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.dimmed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.top {
+  position: relative;
+  z-index: 1;
+}
+.titleBox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.title {
+  font: var(--typography-700-18);
+  color: var(--title-color);
+}
+.nickname {
+  margin-right: 2px;
+  color: var(--nickname-color);
+}
+.dayCount {
+  margin-bottom: 30px;
+  font: var(--typography-400-14);
+  color: var(--day-count-color);
+}
+.description {
+  font: var(--typography-400-16);
+  color: var(--description-color);
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.bottom {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+/* 배경(단색,이미지)에 따라 텍스트 CSS 변경 */
+.img1,
+.img2,
+.img3,
+.img4 {
+  --title-color: var(--black-black_414141, #414141);
+  --day-count-color: var(--gray-gray_818181, #818181);
+  --description-color: var(--black-black_414141, #414141);
+}
+.img1 {
+  background-color: var(--green-green_E1EDDE, #e1edde);
+  --nickname-color: var(--green-green_text_578246, #578246);
+}
+.img2 {
+  background-color: var(--yellow-yellow_FFF1CC, #fff1cc);
+  --nickname-color: var(--yellow-yellow_text_C18E1B, #c18e1b);
+}
+.img3 {
+  background-color: var(--pink-pink_FDE0E9, #fde0e9);
+  --nickname-color: var(--pink-pink_text_BC3C6A, #bc3c6a);
+}
+.img4 {
+  background-color: var(--blue-blue_E0F1F5, #e0f1f5);
+  --nickname-color: var(--blue-blue_text_418099, #418099);
+}
+.img5,
+.img6,
+.img7,
+.img8 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  --title-color: var(--white-white_FFFFFF);
+  --day-count-color: var(--gray-gray_EEEEEE);
+  --description-color: var(--white-white_FFFFFF);
+}
+.img5 {
+  background-image: url(/src/assets/images/Card/img5.jpg);
+}
+.img6 {
+  background-image: url(/src/assets/images/Card/img6.jpg);
+}
+.img7 {
+  background-image: url(/src/assets/images/Card/img7.jpg);
+}
+.img8 {
+  background-image: url(/src/assets/images/Card/img8.jpg);
+}
+
+/* 태블릿: 화면 너비 1023px 이하 */
+@media (max-width: 1023px) {
+  /* 태블릿 스타일 */
+}
+
+/* 모바일: 화면 너비 767px 이하 */
+@media (max-width: 767px) {
+  /* 모바일 스타일 */
+  .card {
+    height: 180px;
+    padding: 16px;
+  }
+  .titleBox {
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  .dayCount {
+    margin-bottom: 12px;
+    font: var(--typography-400-12);
+  }
+  .title {
+    font: var(--typography-700-16);
+    order: 2;
+  }
+  .description {
+    font: var(--typography-400-14);
+  }
+  .point {
+    margin-bottom: 6px;
+  }
+}
