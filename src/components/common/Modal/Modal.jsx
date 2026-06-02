@@ -16,7 +16,7 @@ export default function Modal({
 
     // Escape 키 닫기
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose?.(e);
+      if (e.key === 'Escape') onClose?.();
     };
 
     // 스크롤 잠금
@@ -56,7 +56,6 @@ export default function Modal({
 
         {/* 바디 */}
         <div className={styles.modalBody}>{children}</div>
-        {/* 모바일 반응형으로 y축 스크롤 추가 및 x축 스크롤 숨김 */}
 
         {/* 푸터 — 모바일 닫기 버튼 포함 */}
         <div className={styles.modalFooter}>

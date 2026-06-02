@@ -90,8 +90,6 @@
   .modalCard {
     width: 344px;
     padding: 26px 16px 30px;
-    max-height: 90vh; /* y출 스크롤 생성을 위한 최대 높이 설정*/
-    overflow: hidden; /* 모달 바디 내용 넘침 방지*/
   }
   .modalFooter {
     display: flex;
