@@ -24,6 +24,7 @@
   border-radius: 20px;
   /* 배경 */
   background: var(--white-white_FFFFFF);
+  max-height: 90vh;
 }
 
 .modalHeader {
@@ -60,6 +61,12 @@
 /* 나가기 버튼 모바일 — 푸터에 표시, 기본 숨김 */
 .closeMobile {
   display: none;
+}
+
+.modalBody {
+  width: 100%;
+
+  overflow-y: auto;
 }
 
 .modalFooter {
