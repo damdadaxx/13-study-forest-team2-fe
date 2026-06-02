@@ -55,7 +55,7 @@ export default function Modal({
         </div>
 
         {/* 바디 */}
-        <div>{children}</div>
+        <div style={{ overflowY: 'auto', overflowX: 'hidden' }}>{children}</div>
 
         {/* 푸터 — 모바일 닫기 버튼 포함 */}
         <div className={styles.modalFooter}>
