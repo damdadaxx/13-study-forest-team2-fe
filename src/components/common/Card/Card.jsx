@@ -18,19 +18,16 @@ export default function Card({
       className={`${styles.card} ${styles[background]} ${isImageBg ? styles.dimmed : ''}`}
     >
       <div className={styles.top}>
-        <div>
-          <div className={styles.titleBox}>
-            <p className={styles.title}>
-              <span className={styles.nickname}>{nickname}</span>의 {title}{' '}
-              스터디
-            </p>
-            <TagPoint
-              className={styles.point}
-              color={isImageBg ? 'dark' : 'light'}
-              size="sm"
-              point={point}
-            />
-          </div>
+        <div className={styles.titleBox}>
+          <p className={styles.title}>
+            <span className={styles.nickname}>{nickname}</span>의 {title} 스터디
+          </p>
+          <TagPoint
+            className={styles.point}
+            color={isImageBg ? 'dark' : 'light'}
+            size="sm"
+            point={point}
+          />
           <div className={styles.dayCount}>{dayCount}일째 진행 중</div>
         </div>
         <p className={styles.description}>{description}</p>
