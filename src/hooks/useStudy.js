@@ -6,6 +6,7 @@ export function useStudyById(id) {
   const [study, setStudy] = useState(null);
 
   useEffect(() => {
+    if (!id) return;
     const fetchStudy = async () => {
       try {
         const data = await getStudyById(id);
