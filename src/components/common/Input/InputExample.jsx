@@ -4,15 +4,11 @@ import Input from '@/components/common/Input/Input';
 import Label from '@/components/common/Label/Label';
 import Textarea from '@/components/common/Textarea/Textarea';
 
-import visibilityOff from '@/assets/images/icons/ic_visibility_off.svg';
-import visibilityOn from '@/assets/images/icons/ic_visibility_on.svg';
-
 // TODO: 1차 개발 완료 전에 삭제하기
 export default function InputExample() {
   const [name, setName] = useState('');
   const [pw, setPw] = useState('');
   const [intro, setIntro] = useState('');
-  const [showPw, setShowPw] = useState(false);
 
   return (
     <div
@@ -46,19 +42,10 @@ export default function InputExample() {
       {/* 우측 아이콘 (비번 토글) */}
       <Input
         label="비밀번호"
-        type={showPw ? 'text' : 'password'}
+        type="password"
         value={pw}
         onChange={(e) => setPw(e.target.value)}
         placeholder="비밀번호를 입력해 주세요"
-        rightIcon={
-          <img
-            src={showPw ? visibilityOn : visibilityOff}
-            alt={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
-            width={24}
-            height={24}
-          />
-        }
-        onRightIconClick={() => setShowPw((v) => !v)}
       />
 
       {/* Textarea */}
