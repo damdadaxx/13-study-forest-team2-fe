@@ -1,0 +1,122 @@
+.main {
+  background-color: var(--white-white_FFFFFF);
+  padding: 24px 24px 40px 24px;
+  border-radius: 20px;
+}
+.createStudy {
+  font: var(--typography-800-24);
+  color: var(--black-black_414141);
+  display: block;
+  margin-bottom: 24px;
+}
+.nickname {
+  margin-bottom: 24px;
+}
+.title {
+  margin-bottom: 24px;
+}
+.description {
+  margin-bottom: 24px;
+}
+.bgText {
+  font: var(--typography-600-18);
+  color: var(--black-black_414141);
+  display: block;
+  margin-bottom: 24px;
+}
+.bgItem {
+  position: relative;
+  display: flex;
+}
+.selectedIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+}
+.bgBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6,
+.img7,
+.img8 {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.img1 {
+  background-color: var(--green-green_E1EDDE, #e1edde);
+}
+.img2 {
+  background-color: var(--yellow-yellow_FFF1CC, #fff1cc);
+}
+.img3 {
+  background-color: var(--pink-pink_FDE0E9, #fde0e9);
+}
+.img4 {
+  background-color: var(--blue-blue_E0F1F5, #e0f1f5);
+}
+
+.password {
+  margin-bottom: 24px;
+}
+.passwordCheck {
+  margin-bottom: 40px;
+}
+.notice {
+  font: var(--typography-400-14);
+  color: var(--red-error_C41013);
+  display: block;
+  margin-top: 8px;
+}
+
+/* 태블릿: 화면 너비 1023px 이하 */
+@media (max-width: 1023px) {
+  /* 태블릿 스타일 */
+}
+
+/* 모바일: 화면 너비 767px 이하 */
+@media (max-width: 767px) {
+  /* 모바일 스타일 */
+  .main {
+    padding: 16px 16px 20px 16px;
+  }
+  .createStudy {
+    font: var(--typography-800-16);
+    margin-bottom: 16px;
+  }
+  .bgText {
+    font: var(--typography-600-16);
+    margin-bottom: 16px;
+  }
+  .bgBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .img1,
+  .img2,
+  .img3,
+  .img4,
+  .img5,
+  .img6,
+  .img7,
+  .img8 {
+    width: 100%;
+  }
+  .passwordCheck {
+    margin-bottom: 30px;
+  }
+}
