@@ -1,0 +1,149 @@
+.bodyContainer {
+  width: 100%;
+}
+.inputContainer {
+  display: flex;
+  padding: 0 44px 0 100px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.inputContainer:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.habitInput {
+  width: 400px;
+  height: 54px;
+  border-radius: 20px;
+  background: var(--gray-gray_EEEEEE, #eee);
+  border: none;
+  color: var(--gray-gray_818181, #818181);
+  text-align: center;
+  font: var(--typography-700-16);
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+.habitInput:focus::placeholder {
+  color: transparent; /* 포커스 시 placeholder 텍스트 숨기기 */
+}
+
+.rmBtn {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 35px;
+  background: var(--pink-pink_FDE0E9, #fde0e9);
+  cursor: pointer;
+}
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 54px;
+  border-radius: 20px;
+  border: 2px solid var(--black-black_414141, #414141);
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+.errorMsg {
+  margin-bottom: 8px;
+  margin-top: -13px;
+  color: var(--red-error_C41013, #c41013);
+  font: var(--typography-400-14);
+  text-align: center;
+}
+.maxErrorMsg {
+  margin-bottom: 8px;
+  margin-top: -13px;
+  color: var(--red-error_C41013, #c41013);
+  font: var(--typography-400-16);
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .bodyContainer {
+    width: 100%;
+    padding-top: 8px;
+  }
+  .inputContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+  .inputContainer:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  .errorMsg {
+    margin-top: -3px;
+  }
+  .maxErrorMsg {
+    margin-top: -3px;
+  }
+  .habitInput {
+    width: 256px;
+    height: 54px;
+  }
+  .rmBtn {
+    flex-shrink: 0;
+  }
+  .btnContainer {
+    width: 100%;
+    padding: 0;
+  }
+  .addBtn {
+    width: 100%;
+    height: 54px;
+  }
+
+  .modalBtn {
+    width: 140px;
+    height: 58px;
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  .footerContainer {
+    gap: 10px;
+  }
+}
