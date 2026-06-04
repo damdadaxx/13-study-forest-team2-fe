@@ -13,11 +13,10 @@ export default function HabitModal({ isOpen, onClose }) {
 
   const handleError = () => {
     if (habits.length > 0 && habits[habits.length - 1].trim() === '') {
-      setError('습관을 입력해주세요.');
+      setError(true);
       return;
     }
-
-    setError('');
+    setError(false);
     setHabits([...habits, '']);
   };
 
@@ -60,33 +59,40 @@ export default function HabitModal({ isOpen, onClose }) {
     >
       <div className={styles.bodyContainer}>
         {habits.map((habit, i) => (
-          <div key={i} className={styles.inputContainer}>
+          <div key={habit.id} className={styles.inputContainer}>
             <input
               className={`${styles.habitInput} ${
                 error && i === habits.length - 1 ? styles.shake : ''
               }`}
               value={habit}
               onChange={(e) => handleHabitChange(i, e.target.value)}
-              placeholder={`${i + 1}번째 습관을 추가해주세요`}
+              placeholder="습관을 추가해주세요"
               maxLength={20}
             />
             <button
               onClick={() => handleHabitDelete(i)}
               className={styles.rmBtn}
-              aria-label="습관 삭제"
+              aria-label="습관 삭제 버튼"
             >
-              <img src={trash} alt="삭제" />
+              <img src={trash} alt="" />
             </button>
           </div>
         ))}
 
         <div className={styles.btnContainer}>
-          {error && <p className={styles.errorMsg}>{error}</p>}
+          {error && <p className={styles.errorMsg}>습관을 입력해주세요</p>}
 
-          {habits.length < 8 && (
+          {habits.length < 8 ? (
             <button className={styles.addBtn} onClick={handleError}>
+              {' '}
+              {/*  이전 습관 인풋 빈 값 시  에러메세지 */}
               <span style={{ fontSize: '24px' }}>+</span>
             </button>
+          ) : (
+            <p className={styles.maxErrorMsg}>
+              습관 생성은 최대 8개까지 가능합니다.{' '}
+              {/*  최대 갯수 도달 시 에러메세지 */}
+            </p>
           )}
         </div>
       </div>

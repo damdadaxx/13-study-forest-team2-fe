@@ -3,10 +3,8 @@ import { Route, Routes } from 'react-router';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 
 import Example from '@/pages/Example';
-import Focus from '@/pages/Focus';
-import Habit from '@/pages/habits/Habit';
 import Focus from '@/pages/focus/Focus';
-import Habit from '@/pages/Habit';
+import Habit from '@/pages/habits/Habit';
 import Main from '@/pages/Main';
 import NotFound from '@/pages/NotFound';
 import StudyCreate from '@/pages/studies/StudyCreate';
@@ -27,19 +25,15 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Main />} />
-
           <Route path="studies">
             <Route path="new" element={<StudyCreate />} />
             <Route path=":studyId/edit" element={<StudyEdit />} />
             <Route path=":studyId" element={<StudyDetail />} />
+            <Route path=":studyId/habits" element={<Habit />} />
             <Route path=":studyId/focus" element={<Focus />} />
           </Route>
-
-          <Route path="habits" element={<Habit />} />
         </Route>
-
         {/* TODO: 개발 완료 시 삭제하기 */}
-
         <Route path="buttons" element={<ButtonExample />} />
         <Route path="inputs" element={<InputExample />} />
         <Route path="modal" element={<ModalExample />} />
@@ -50,5 +44,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
