@@ -16,7 +16,6 @@ export default function Textarea({
   const textareaClassNames = clsx(
     styles.textarea, // 기본 클래스
     hasError && styles.error, //에러가 있을 때만 붙는 클래스
-    className, // 페이지 내에서 지정한 클래스
   );
 
   return (

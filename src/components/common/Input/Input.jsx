@@ -20,7 +20,6 @@ export default function Input({
     styles.input, // 기본 클래스
     hasError && styles.error, // 에러 상태일 때 적용되는 스타일
     rightIcon && styles.hasIcon, // 오른쪽 아이콘이 있을 때 적용되는 스타일
-    className, // 사용하는 페이지 내에서 적용하는 클래스네임
   );
 
   return (
