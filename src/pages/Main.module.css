@@ -1,0 +1,226 @@
+.top {
+  background-color: var(--white-white_FFFFFF);
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+.recentStudies {
+  font: var(--typography-800-24);
+  margin-bottom: 30px;
+  display: block;
+  color: var(--black-black_414141);
+}
+.recentStudyBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bottom {
+  background-color: var(--white-white_FFFFFF);
+  padding: 40px;
+  border-radius: 20px;
+}
+.exploreStudies {
+  font: var(--typography-800-24);
+  margin-bottom: 24px;
+  display: block;
+  color: var(--black-black_414141);
+}
+.controller {
+  display: flex;
+  margin-bottom: 24px;
+  justify-content: space-between;
+}
+.searchBox {
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+}
+.search {
+  font: var(--typography-400-16);
+  color: var(--black-black_414141);
+  width: 335px;
+  height: 42px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  padding: 12px 20px 12px 48px;
+}
+.search::placeholder {
+  font: var(--typography-400-16);
+  color: var(--gray-gray_818181);
+}
+.selectBox {
+  position: relative;
+}
+.selectIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}
+.select {
+  width: 180px;
+  height: 42px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  padding: 9px 20px 9px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font: var(--typography-400-16);
+  color: var(--gray-gray_818181);
+}
+.selected {
+  width: 180px;
+  cursor: pointer;
+}
+.options {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  margin-top: 8px;
+  left: 0;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  width: 180px;
+  height: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+  background-color: var(--white-white_FFFFFF);
+}
+.option {
+  font: var(--typography-400-16);
+  color: var(--black-black_414141);
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0px 11px 0px;
+  width: 180px;
+  height: 42px;
+  cursor: pointer;
+}
+.option:last-child {
+  border-bottom: none;
+}
+.exploreStudiesBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.button {
+  display: block;
+  width: 280px;
+  height: 53px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: var(--white-white_FFFFFF);
+  color: var(--green-green_text_578246);
+  font: var(--typography-500-16);
+  margin: 0 auto;
+  cursor: pointer;
+}
+.empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-gray_818181);
+  font: var(--typography-500-20);
+}
+.emptyRecent {
+  height: 243px;
+}
+.emptyExplore {
+  height: 563px;
+}
+/* 태블릿: 화면 너비 1023px 이하 */
+@media (max-width: 1023px) {
+  /* 태블릿 스타일 */
+
+  .top {
+    padding: 24px 0px 24px 0px;
+    margin-bottom: 24px;
+  }
+  .recentStudies {
+    margin-left: 24px;
+    margin-bottom: 18px;
+  }
+  .recentStudyBox {
+    display: block;
+    overflow: hidden;
+  }
+  .swiperSlide {
+    width: 358px !important;
+  }
+  .bottom {
+    padding: 24px 24px 40px 24px;
+  }
+  .exploreStudiesBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .emptyRecent {
+    height: 243px;
+  }
+  .emptyExplore {
+    height: 384px;
+  }
+}
+
+/* 모바일: 화면 너비 767px 이하 */
+@media (max-width: 767px) {
+  /* 모바일 스타일 */
+  .top {
+    padding: 16px 0px 16px 0px;
+    margin-bottom: 16px;
+  }
+  .recentStudies {
+    margin-left: 18px;
+    margin-bottom: 16px;
+    font: var(--typography-800-16);
+  }
+  .swiperSlide {
+    width: 240px !important;
+  }
+  .bottom {
+    padding: 16px 16px 20px 16px;
+  }
+  .exploreStudies {
+    font: var(--typography-800-16);
+    margin-bottom: 16px;
+  }
+  .controller {
+    display: flex;
+    margin-bottom: 12px;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .searchBox {
+    margin-bottom: 12px;
+  }
+  .search {
+    width: 100%;
+  }
+  .selectBox {
+    align-self: flex-end;
+  }
+  .exploreStudiesBox {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .empty {
+    font: var(--typography-500-16);
+  }
+  .emptyRecent {
+    height: 180px;
+  }
+  .emptyExplore {
+    height: 196px;
+  }
+}
