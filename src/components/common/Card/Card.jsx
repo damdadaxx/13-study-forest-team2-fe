@@ -12,6 +12,7 @@ export default function Card({
   description = '',
   emojiAndCount = [],
   background = '',
+  onClick = () => {},
 }) {
   const isImageBg = ['img5', 'img6', 'img7', 'img8'].includes(background);
 
@@ -22,6 +23,7 @@ export default function Card({
         styles[background], // background prop에 따른 스타일
         isImageBg && styles.dimmed, // 조건부 dimmed 스타일
       )}
+      onClick={onClick}
     >
       <div className={styles.top}>
         <div className={styles.titleBox}>

@@ -2,7 +2,6 @@
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
-  min-width: 312px;
   height: 243px;
   min-height: 180px;
   padding: 30px;
@@ -10,6 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  cursor: pointer;
 }
 .dimmed::after {
   content: '';
