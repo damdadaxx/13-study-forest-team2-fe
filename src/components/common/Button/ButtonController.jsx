@@ -8,14 +8,12 @@ import IcStop from '@/assets/images/icons/ic_stop.svg';
 export default function ButtonController({
   className = '',
   variant = 'primary', // primary: 시작 버튼, secondary: 정지 버튼
-  color = 'brand', // brand, gray
   disabled = false,
   onClick,
   ...props
 }) {
   const classNames = clsx(
     styles.button, // 기본클래스
-    styles[color], // 색상에 따라 적용되는 클래스
     className, // 페이지 내에서 적용하는 클래스
   );
 
