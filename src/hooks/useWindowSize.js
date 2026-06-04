@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+//환경에 따라 렌더링 할 요소 분기 처리하기 위해
 export function useWindowSize() {
   const [width, setWidth] = useState(window.innerWidth);
 

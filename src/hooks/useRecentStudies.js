@@ -1,5 +1,6 @@
 import { useStudy } from '@/hooks/useStudy.js';
 
+//로컬스토리지 활용하여 최근 조회 목록 구현
 export function useGetRecentStudies() {
   const recentStudyIds = JSON.parse(localStorage.getItem('ids')) || [];
   const recentStudy1 = useStudy(recentStudyIds[0]);

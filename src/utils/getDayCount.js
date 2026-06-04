@@ -1,3 +1,4 @@
+// 습관 진행 일 수 계산
 export function getDayCount(createdAt) {
   const start = new Date(createdAt);
   const now = new Date();

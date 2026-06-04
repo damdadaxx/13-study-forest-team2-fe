@@ -49,8 +49,10 @@ export default function Main() {
           {!hasRecentStudies ? (
             <p className={`${styles.empty} ${styles.emptyRecent}`}>
               아직 조회한 스터디가 없어요
+              {/* 빈페이지 구현 */}
             </p>
-          ) : width <= 1024 ? (
+          ) : // 패드,모바일 환경은 스와이퍼 사용 데스크탑은 x
+          width <= 1024 ? (
             <Swiper
               slidesPerView={'auto'}
               slidesOffsetBefore={20}
@@ -162,6 +164,7 @@ export default function Main() {
           </div>
         </div>
         <div className={styles.exploreStudiesBox}>
+          {/* 빈페이지 구현 */}
           {!hasExploreStudies ? (
             <p className={`${styles.empty} ${styles.emptyExplore}`}>
               아직 둘러 볼 스터디가 없어요
