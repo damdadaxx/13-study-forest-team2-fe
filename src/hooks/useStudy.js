@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { getStudyById } from '@/api/study.js';
 
-export function useStudyById(id) {
+export function useStudy(id) {
   const [study, setStudy] = useState(null);
 
   useEffect(() => {
