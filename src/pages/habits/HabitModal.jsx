@@ -65,14 +65,14 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
     try {
       for (const h of targetHabits) {
         if (h.isNew && !h.isDeleted && h.content.trim()) {
-          await createHabit(studyId, h.content); // 새로 추가한 습관 생성
+          await createHabit(studyId, h.content);
         } else if (!h.isNew && h.isDeleted) {
-          await deleteHabit(studyId, h.id); // 기존 습관 삭제
+          await deleteHabit(studyId, h.id);
         } else if (!h.isNew && !h.isDeleted) {
-          await updateHabit(studyId, h.id, h.content); // 기존 습관 수정
+          await updateHabit(studyId, h.id, h.content);
         }
       }
-      onClose();
+      onClose(); 
     } catch (err) {
       setApiError(
         err.message || '서버 오류가 발생했습니다. 다시 시도해주세요.',
@@ -99,6 +99,7 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
   const handleConfirmDelete = async () => {
     const habit = habits[deleteTarget];
     let updatedHabits;
+
     if (habit.isNew) {
       updatedHabits = habits.filter((_, i) => i !== deleteTarget);
     } else {
@@ -106,9 +107,19 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
         i === deleteTarget ? { ...h, isDeleted: true } : h,
       );
     }
-    setHabits(updatedHabits);
+
     setDeleteTarget(null);
-    await saveHabits(updatedHabits); // 삭제 후 바로 DB 저장 후 모달 닫기
+
+    try {
+      // 기존 습관이면 DB에서 삭제
+      if (!habit.isNew) {
+        await deleteHabit(studyId, habit.id);
+      }
+      // 성공하면 화면에서도 제거
+      setHabits(updatedHabits.filter((h) => !h.isDeleted));
+    } catch (err) {
+      setApiError(err.message || '삭제에 실패했습니다.');
+    }
   };
 
   const visibleHabits = habits.filter((h) => !h.isDeleted); //삭제한 습관 숨기기
