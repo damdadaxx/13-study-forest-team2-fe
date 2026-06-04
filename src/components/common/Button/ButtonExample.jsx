@@ -50,7 +50,7 @@ export default function ButtonExample() {
       >{`<ButtonController> 컴포넌트`}</p>
       <ButtonController />
       <ButtonController variant="secondary" />
-      <ButtonController color="gray" />
+      <ButtonController disabled={true} />
 
       <p
         style={{ fontSize: '50px', padding: '25px 0' }}

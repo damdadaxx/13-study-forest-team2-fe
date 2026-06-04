@@ -6,18 +6,12 @@
   width: 333px;
   height: 60px;
   border-radius: 50px;
+  background: var(--brand-brand_99C08E);
   cursor: pointer;
 }
 
-.button.brand {
-  background: var(--brand-brand_99C08E);
-}
-
-.button.gray {
-  background: var(--gray-gray_818181);
-}
-
 .button:disabled {
+  background: var(--gray-gray_818181);
   cursor: default;
 }
 
