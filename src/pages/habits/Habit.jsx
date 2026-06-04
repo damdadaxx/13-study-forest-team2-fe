@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
@@ -9,6 +10,8 @@ export default function Habit() {
     listModal: false,
     formModal: false,
   });
+  const { studyId } = useParams();
+  console.log('studyId 값:', studyId);
   return (
     <Container>
       <div>오늘의 습관 페이지</div>
@@ -27,6 +30,7 @@ export default function Habit() {
       <HabitModal
         isOpen={modals.listModal}
         onClose={() => setModals({ ...modals, listModal: false })}
+        studyId={studyId}
       />
     </Container>
   );
