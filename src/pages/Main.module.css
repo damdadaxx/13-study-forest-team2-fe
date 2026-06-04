@@ -156,7 +156,7 @@
     overflow: hidden;
   }
   .swiperSlide {
-    width: 358px !important;
+    /* width: 358px !important; */
   }
   .bottom {
     padding: 24px 24px 40px 24px;
@@ -185,7 +185,7 @@
     font: var(--typography-800-16);
   }
   .swiperSlide {
-    width: 240px !important;
+    /* width: 240px !important; */
   }
   .bottom {
     padding: 16px 16px 20px 16px;

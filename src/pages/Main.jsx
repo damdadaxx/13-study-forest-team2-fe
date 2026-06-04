@@ -5,8 +5,10 @@ import Container from '@/layouts/Container/Container';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { SORT_OPTIONS } from '@/constants/constants.js';
+
 import { useDebounce } from '@/hooks/useDebounce.js';
-import { useGetRecentStudies } from '@/hooks/useRecentStudies.js';
+import { useRecentStudies } from '@/hooks/useRecentStudies.js';
 import { useStudies } from '@/hooks/useStudy.js';
 import { useWindowSize } from '@/hooks/useWindowSize.js';
 
@@ -28,13 +30,8 @@ export default function Main() {
   const exploreStudies = useStudies(query);
   const [isToggle, setIsToggle] = useState(false);
   const [selected, setSelected] = useState('최근 순');
-  const options = [
-    { value: 'recent', label: '최근 순' },
-    { value: 'oldest', label: '오래된 순' },
-    { value: 'pointDesc', label: '많은 포인트 순' },
-    { value: 'pointAsc', label: '적은 포인트 순' },
-  ];
-  const recentStudiesData = useGetRecentStudies();
+
+  const recentStudiesData = useRecentStudies();
   const width = useWindowSize();
 
   const validRecentStudies = recentStudiesData?.filter(Boolean) ?? [];
@@ -54,12 +51,16 @@ export default function Main() {
           ) : // 패드,모바일 환경은 스와이퍼 사용 데스크탑은 x
           width <= 1024 ? (
             <Swiper
-              slidesPerView={'auto'}
-              slidesOffsetBefore={20}
+              slidesPerView={1.3}
+              slidesOffsetAfter={16}
+              slidesOffsetBefore={16}
               spaceBetween={16}
               breakpoints={{
                 768: {
-                  spaceBetween: 24,
+                  slidesPerView: 1.83,
+                  slidesOffsetAfter: 24,
+                  slidesOffsetBefore: 24,
+                  spaceBetween: 16,
                 },
               }}
             >
@@ -68,7 +69,7 @@ export default function Main() {
                   <Card
                     nickname={study.data.nickname}
                     title={study.data.title}
-                    point={study.data.totalpoint}
+                    point={study.data.totalPoint}
                     dayCount={getDayCount(study.data.createdAt)}
                     description={study.data.description}
                     emojiAndCount={study.data.emojis}
@@ -91,7 +92,7 @@ export default function Main() {
                 key={study.data.id}
                 nickname={study.data.nickname}
                 title={study.data.title}
-                point={study.data.totalpoint}
+                point={study.data.totalPoint}
                 dayCount={getDayCount(study.data.createdAt)}
                 description={study.data.description}
                 emojiAndCount={study.data.emojis}
@@ -144,7 +145,7 @@ export default function Main() {
               </div>
               {isToggle && (
                 <ul className={styles.options}>
-                  {options.map((option) => (
+                  {SORT_OPTIONS.map((option) => (
                     <li
                       className={styles.option}
                       key={option.value}
@@ -175,7 +176,7 @@ export default function Main() {
                 key={study.id}
                 nickname={study.nickname}
                 title={study.title}
-                point={study.totalpoint}
+                point={study.totalPoint}
                 dayCount={getDayCount(study.createdAt)}
                 description={study.description}
                 emojiAndCount={study.emojis}

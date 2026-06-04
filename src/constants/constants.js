@@ -25,3 +25,9 @@ export const CONTAINER_RULES = [
   { pattern: /habits/, size: 'lg' },
   { pattern: /focus/, size: 'lg' },
 ];
+export const SORT_OPTIONS = [
+  { value: 'recent', label: '최근 순' },
+  { value: 'oldest', label: '오래된 순' },
+  { value: 'pointDesc', label: '많은 포인트 순' },
+  { value: 'pointAsc', label: '적은 포인트 순' },
+];
