@@ -69,6 +69,7 @@ export default function Habit() {
       <div className={styles.page}>
         <header className={styles.header}>
           <h1 className={styles.studyName}>연우의 개발공장</h1>
+          {/* 스터디 명 하드코딩, 추후 연동 */}
           <nav className={styles.nav}>
             <ButtonHabit text="오늘의 집중" href="/focus" />
             <ButtonHabit text="홈" href="/" />
