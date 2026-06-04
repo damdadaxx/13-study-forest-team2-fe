@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import styles from '@/components/common/Label/Label.module.css';
 
 export default function Label({
