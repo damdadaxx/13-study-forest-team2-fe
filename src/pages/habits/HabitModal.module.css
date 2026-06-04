@@ -81,6 +81,7 @@
   border: 2px solid var(--black-black_414141, #414141);
   background: rgba(255, 255, 255, 0);
   cursor: pointer;
+  margin-bottom: 24px;
 }
 .errorMsg {
   margin-bottom: 8px;

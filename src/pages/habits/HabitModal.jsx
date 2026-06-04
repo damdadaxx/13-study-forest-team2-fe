@@ -9,7 +9,7 @@ import trash from '@/assets/images/icons/ic_trash.svg';
 
 export default function HabitModal({ isOpen, onClose }) {
   const [habits, setHabits] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(false);
 
   const handleError = () => {
     if (habits.length > 0 && habits[habits.length - 1].trim() === '') {
@@ -25,12 +25,12 @@ export default function HabitModal({ isOpen, onClose }) {
     updated[index] = value;
     setHabits(updated);
 
-    if (error) setError(''); // 입력하면 에러 초기화
+    if (error) setError(false); // 입력하면 에러 초기화
   };
 
   const handleHabitDelete = (index) => {
     setHabits(habits.filter((_, i) => i !== index));
-    if (error) setError('');
+    if (error) setError(false);
   };
 
   return (
@@ -90,7 +90,7 @@ export default function HabitModal({ isOpen, onClose }) {
             </button>
           ) : (
             <p className={styles.maxErrorMsg}>
-              습관 생성은 최대 8개까지 가능합니다.{' '}
+              습관 생성은 최대 8개까지 가능합니다.
               {/*  최대 갯수 도달 시 에러메세지 */}
             </p>
           )}
