@@ -32,7 +32,9 @@ export default function Input({
       <div className={styles.inputWrapper}>
         <input
           className={inputClassNames}
-          type={type === type ? (showPassword ? 'text' : 'password') : type}
+          type={
+            type === 'password' ? (showPassword ? 'text' : 'password') : type
+          }
           value={value}
           onChange={onChange}
           placeholder={placeholder}
