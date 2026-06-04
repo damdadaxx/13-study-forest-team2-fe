@@ -7,7 +7,7 @@ export default function Label({
   ...props
 }) {
   return (
-    <label className={`${styles.field} ${className}`} {...props}>
+    <label className={clsx(styles.field, className)} {...props}>
       {text && <span className={styles.label}>{text}</span>}
       {children}
     </label>
