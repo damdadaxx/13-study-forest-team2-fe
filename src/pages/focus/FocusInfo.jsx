@@ -1,7 +1,7 @@
+import styles from '@/pages/focus/Focus.module.css';
+
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
 import TagPoint from '@/components/common/Tag/TagPoint';
-
-import styles from './Focus.module.css';
 
 export default function FocusInfo({ study }) {
   return (

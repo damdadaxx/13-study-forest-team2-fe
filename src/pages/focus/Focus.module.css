@@ -24,7 +24,7 @@
 .studyTitle {
   margin: 0;
   color: var(--black-black_414141);
-  font: var(--typography-700-32);
+  font: var(--typography-800-32);
 }
 
 .pointInfo {
@@ -75,14 +75,7 @@
   justify-content: center;
 }
 
-.message {
-  padding: 40px;
-  color: var(--black-black_414141);
-  font: var(--typography-500-16);
-  text-align: center;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .focusContainer {
     margin-top: 16px;
   }
@@ -108,7 +101,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .focusContainer {
     margin-top: 20px;
   }
@@ -123,7 +116,7 @@
   }
 
   .studyTitle {
-    font: var(--typography-700-24);
+    font: var(--typography-800-24);
   }
 
   .actions {
@@ -132,7 +125,7 @@
 
   .timerSection {
     margin-top: 24px;
-    padding: 24px 16px 48px;
+    padding: 24px 16px 52px;
   }
 
   .timerArea {
