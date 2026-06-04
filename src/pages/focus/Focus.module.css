@@ -1,0 +1,142 @@
+.focusContainer {
+  margin-top: 53px;
+}
+
+.focusPage {
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--white-white_FFFFFF);
+}
+
+.focusTop {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.studyTitle {
+  margin: 0;
+  color: var(--black-black_414141);
+  font: var(--typography-800-32);
+}
+
+.pointInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pointLabel {
+  margin: 0;
+  color: var(--gray-gray_818181);
+  font: var(--typography-400-18);
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.timerSection {
+  margin-top: 24px;
+  padding: 40px 24px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid var(--gray-gray_DDDDDD);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--black-black_414141);
+  font: var(--typography-800-24);
+}
+
+.timerArea {
+  margin-top: 100px;
+}
+
+.timerText {
+  margin: 0;
+  color: var(--black-black_414141);
+  font: var(--typography-800-150);
+}
+
+.controllerArea {
+  margin-top: 94px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1023px) {
+  .focusContainer {
+    margin-top: 16px;
+  }
+
+  .focusPage {
+    padding: 24px;
+  }
+
+  .timerSection {
+    margin-top: 40px;
+  }
+
+  .timerArea {
+    margin-top: 94px;
+  }
+
+  .timerText {
+    font: var(--typography-800-120);
+  }
+
+  .controllerArea {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .focusContainer {
+    margin-top: 20px;
+  }
+
+  .focusPage {
+    padding: 16px;
+  }
+
+  .titleRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .studyTitle {
+    font: var(--typography-800-24);
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .timerSection {
+    margin-top: 24px;
+    padding: 24px 16px 52px;
+  }
+
+  .timerArea {
+    margin-top: 64px;
+  }
+
+  .timerText {
+    font: var(--typography-800-80);
+  }
+
+  .controllerArea {
+    margin-top: 64px;
+  }
+}
