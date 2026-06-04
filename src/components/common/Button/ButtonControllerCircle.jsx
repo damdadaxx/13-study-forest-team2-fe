@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import styles from '@/components/common/Button/ButtonControllerCircle.module.css';
 
 import IcPause from '@/assets/images/icons/ic_pause.svg';
@@ -10,7 +12,11 @@ export default function ButtonControllerCircle({
   onClick,
   ...props
 }) {
-  const classNames = `${styles.button} ${styles[color]} ${className}`;
+  const classNames = clsx(
+    styles.button, // 기본클래스
+    styles[color], // 색상에 따라 적용되는 클래스
+    className,
+  );
 
   return (
     <button

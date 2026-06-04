@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
 
+import clsx from 'clsx';
+
 import styles from '@/components/common/Button/ButtonHabit.module.css';
 
 export default function ButtonHabit({
@@ -9,7 +11,10 @@ export default function ButtonHabit({
   href,
   ...props
 }) {
-  const classNames = `${styles.button} ${className}`;
+  const classNames = clsx(
+    styles.button, // 기본 클래스
+    className, // 페이지 내에서 적용하는 클래스
+  );
 
   if (href) {
     return (

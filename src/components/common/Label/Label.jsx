@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import styles from '@/components/common/Label/Label.module.css';
 
 export default function Label({
@@ -7,7 +9,7 @@ export default function Label({
   ...props
 }) {
   return (
-    <label className={`${styles.field} ${className}`} {...props}>
+    <label className={clsx(styles.field, className)} {...props}>
       {text && <span className={styles.label}>{text}</span>}
       {children}
     </label>

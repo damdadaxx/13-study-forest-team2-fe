@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
 
+import clsx from 'clsx';
+
 import styles from '@/components/common/Button/Button.module.css';
 
 export default function Button({
@@ -22,7 +24,12 @@ export default function Button({
   href,
   ...props
 }) {
-  const classNames = `${styles.button} ${styles[size]} ${styles[color]} ${className}`;
+  const classNames = clsx(
+    styles.button, // 기본 클래스
+    styles[size], // 사이즈에 따라 적용하는 스타일
+    styles[color], // 색상에 따라 적용하는 스타일
+    className, //페이지 내에서 적용하는 스타일
+  );
 
   if (href) {
     return (
