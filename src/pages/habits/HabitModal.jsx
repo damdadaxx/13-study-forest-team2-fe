@@ -84,7 +84,6 @@ export default function HabitModal({ isOpen, onClose }) {
 
           {habits.length < 8 ? (
             <button className={styles.addBtn} onClick={handleError}>
-              {' '}
               {/*  이전 습관 인풋 빈 값 시  에러메세지 */}
               <span style={{ fontSize: '24px' }}>+</span>
             </button>
