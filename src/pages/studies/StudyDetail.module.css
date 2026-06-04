@@ -1,0 +1,133 @@
+.studyDetail {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+/* 이모지 + 버튼 */
+.topArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.buttons {
+  display: flex;
+}
+.button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.button:not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 15px;
+  margin-right: 16px;
+  background-color: var(--green-green_text_578246);
+}
+
+/* 스터디 정보 */
+.studyInfo {
+  margin-bottom: 40px;
+}
+.titleArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.title {
+  flex: 1;
+  font: var(--typography-800-32);
+  color: var(--black-black_414141);
+}
+.buttonStudies {
+  display: flex;
+  gap: 16px;
+}
+.introTitle {
+  margin-bottom: 8px;
+  font: var(--typography-400-18);
+  color: var(--gray-gray_818181);
+}
+.description {
+  margin-bottom: 24px;
+  font: var(--typography-500-18);
+  color: var(--black-black_414141, #414141);
+}
+.pointTitle {
+  margin-bottom: 8px;
+  color: var(--gray-gray_818181, #818181);
+  font: var(--typography-400-18);
+}
+
+/* 클립보드 모달 */
+.clipboardText {
+  margin: 30px 0;
+  text-align: center;
+  font: var(--typography-500-18);
+  color: var(--gray-gray_818181, #818181);
+}
+
+/* 태블릿: 화면 너비 1023px 이하 */
+@media (max-width: 1023px) {
+  .studyDetail {
+    padding: 24px;
+  }
+
+  /* 스터디 정보 */
+  .studyInfo {
+    margin-bottom: 24px;
+  }
+  .buttonStudies {
+    gap: 8px;
+  }
+}
+
+/* 모바일: 화면 너비 767px 이하 */
+@media (max-width: 767px) {
+  .studyDetail {
+    padding: 16px;
+  }
+
+  /* 이모지 + 버튼 */
+  .topArea {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .buttons {
+    margin-left: auto;
+    margin-bottom: 16px;
+  }
+  .button {
+    gap: 8px;
+  }
+  .button:not(:last-child)::after {
+    margin-right: 8px;
+  }
+
+  /* 스터디 정보 */
+  .titleArea {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .title {
+    margin-bottom: 16px;
+    font: var(--typography-800-24);
+  }
+  .introTitle {
+    font: var(--typography-400-16);
+    color: var(--gray-gray_818181, #818181);
+  }
+  .description {
+    font: var(--typography-500-14);
+  }
+  .pointTitle {
+    font: var(--typography-400-16);
+  }
+}
