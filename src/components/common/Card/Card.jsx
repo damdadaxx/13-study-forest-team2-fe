@@ -41,9 +41,12 @@ export default function Card({
         <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.bottom}>
-        {emojiAndCount.map((e) => (
-          <TagEmoji key={e.emoji} size="sm" emoji={e.emoji} count={e.count} />
-        ))}
+        {[...emojiAndCount]
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 3)
+          .map((e) => (
+            <TagEmoji key={e.emoji} size="sm" emoji={e.emoji} count={e.count} />
+          ))}
       </div>
     </div>
   );

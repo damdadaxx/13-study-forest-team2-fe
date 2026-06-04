@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import { getStudyById } from '@/api/study.js';
+import { getStudies, getStudyById } from '@/api/study.js';
 
 export function useStudy(id) {
   const [study, setStudy] = useState(null);
@@ -19,4 +19,35 @@ export function useStudy(id) {
   }, [id]);
 
   return study;
+}
+
+export function useStudies({ keyword, cursor, limit, sort }) {
+  const [studies, setStudies] = useState(null);
+
+  const query = useMemo(
+    () => ({
+      ...(keyword && { keyword }),
+      ...(cursor && { cursor }),
+      limit,
+      sort,
+    }),
+    [keyword, cursor, limit, sort],
+  );
+
+  useEffect(() => {
+    const fetchStudies = async () => {
+      try {
+        const data = await getStudies(query);
+        setStudies((prev) => {
+          if (!prev || !cursor) return data;
+          return { ...data, data: [...prev.data, ...data.data] };
+        });
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    fetchStudies();
+  }, [query]);
+
+  return studies;
 }
