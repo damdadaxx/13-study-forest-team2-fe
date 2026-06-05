@@ -1,26 +1,57 @@
+import clsx from 'clsx';
+
 import styles from '@/pages/focus/Focus.module.css';
 
 import ButtonController from '@/components/common/Button/ButtonController';
+import ButtonControllerCircle from '@/components/common/Button/ButtonControllerCircle';
 
-export default function FocusTimer({ displayTime, isRunning, onStart }) {
+import IcTimer from '@/assets/images/icons/ic_timer.svg';
+
+export default function FocusTimer({
+  displayTime,
+  baseTime,
+  isRunning,
+  isCountDown,
+  onStart,
+  pauseButton,
+  resetButton,
+}) {
+  const isStarted = displayTime !== baseTime;
+
   return (
     <section className={styles.timerSection}>
       <h2 className={styles.sectionTitle}>오늘의 집중</h2>
 
+      {(isRunning || isStarted) && (
+        <div className={styles.timerIcon}>
+          <img src={IcTimer} alt="설정 시간 아이콘" />
+          <span>{baseTime}</span>
+        </div>
+      )}
+
       <div className={styles.timerArea}>
-        <p className={styles.timerText}>{displayTime}</p>
+        <p className={clsx(styles.timerText, isCountDown && styles.redCount)}>
+          {displayTime}
+        </p>
       </div>
 
       <div className={styles.controllerArea}>
-        {/*
-          현재 layout 범위에서는 Start 활성화/비활성화까지만 처리합니다.
-          추후 작동 중 화면 이후 overtime 브랜치에서 마무리 예정입니다.
-        */}
-        <ButtonController
-          variant="primary"
-          disabled={isRunning}
-          onClick={onStart}
-        />
+        {!isStarted && !isRunning ? (
+          <ButtonController variant="primary" onClick={onStart} />
+        ) : (
+          <>
+            <ButtonControllerCircle
+              variant="secondary"
+              onClick={isRunning ? pauseButton : onStart}
+            />
+
+            {/* 비활성화 상태 유지 */}
+            <ButtonController variant="secondary" disabled={true} />
+
+            {/* 리셋 */}
+            <ButtonControllerCircle variant="primary" onClick={resetButton} />
+          </>
+        )}
       </div>
     </section>
   );

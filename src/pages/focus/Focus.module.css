@@ -73,8 +73,30 @@
   margin-top: 94px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
-
+/* 타이머 아이콘 */
+.timerIcon {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 12px auto 0 auto;
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.timerIcon img {
+  width: 19px;
+  height: 19px;
+}
+.redCount {
+  color: #f50e0e;
+}
 @media (max-width: 1023px) {
   .focusContainer {
     margin-top: 16px;

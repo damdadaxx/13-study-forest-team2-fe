@@ -11,34 +11,46 @@ import styles from '@/pages/focus/Focus.module.css';
 import FocusInfo from '@/pages/focus/FocusInfo';
 import FocusTimer from '@/pages/focus/FocusTimer';
 
-const BASE_DURATION = 1500;
+import Toast from '@/components/common/Toast/Toast';
+
+const BASE_DURATION = 11;
 
 export default function Focus() {
   const { studyId } = useParams();
-
   const studyResponse = useStudy(studyId);
   const study = studyResponse?.data;
 
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [isToastOpen, setIsToastOpen] = useState(false);
+
+  const pauseButton = () => {
+    setIsRunning(false);
+    setIsToastOpen(true);
+  };
+
+  const resetButton = () => {
+    setIsRunning(false);
+    setElapsedSeconds(0);
+  };
 
   useEffect(() => {
     if (!isRunning) return;
-
     const timerId = setInterval(() => {
       setElapsedSeconds((prevSeconds) => prevSeconds + 1);
     }, 1000);
-
-    return () => {
-      clearInterval(timerId);
-    };
+    return () => clearInterval(timerId);
   }, [isRunning]);
 
-  // earnedPoint, totalPoint 계산은 BE의 focus.controller.js에서 처리합니다.
   const displaySeconds = BASE_DURATION - elapsedSeconds;
-  const displayTime = formatTimerDisplay(displaySeconds);
+  let displayTime = formatTimerDisplay(displaySeconds);
+  if (displaySeconds < 0) {
+    displayTime = `-${formatTimerDisplay(Math.abs(displaySeconds))}`;
+  }
 
-  // 로딩 , 에러 처리 hook 구조에 맞춰 제거하였습니다. API 응답 전 최소 방어 처리
+  const isCountDown = displaySeconds <= 10 && displaySeconds >= 0;
+  const baseTime = formatTimerDisplay(BASE_DURATION);
+
   if (!study) return null;
 
   return (
@@ -47,8 +59,18 @@ export default function Focus() {
         <FocusInfo study={study} />
         <FocusTimer
           displayTime={displayTime}
+          baseTime={baseTime}
           isRunning={isRunning}
+          isCountDown={isCountDown}
           onStart={() => setIsRunning(true)}
+          pauseButton={pauseButton}
+          resetButton={resetButton}
+        />
+        <Toast
+          message="🚨 집중이 중단되었습니다."
+          isDisplay={isToastOpen}
+          onClose={() => setIsToastOpen(false)}
+          color="warning"
         />
       </div>
     </Container>
