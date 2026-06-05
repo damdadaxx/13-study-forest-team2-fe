@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
-import clsx from 'clsx';
 
 import { useCreateStudy } from '@/hooks/useStudy.js';
 
@@ -23,9 +22,11 @@ export default function StudyCreate() {
   const [nickname, setNickname] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [bgSelected, setBgSelected] = useState('');
+  const [bgSelected, setBgSelected] = useState('img1');
+  const [touched, setTouched] = useState({});
   const create = useCreateStudy();
   const navigate = useNavigate();
+  const isTouched = Object.keys(touched).length > 0;
   const isValid =
     nickname.trim() &&
     nickname.length <= 5 &&
@@ -33,12 +34,18 @@ export default function StudyCreate() {
     title.length <= 5 &&
     description.trim() &&
     description.length <= 500 &&
-    bgSelected &&
     pw.length >= 8 &&
     pw.length <= 15 &&
     pw === pwCheck;
   const handleSubmit = async () => {
     if (!isValid) {
+      setTouched({
+        nickname: true,
+        title: true,
+        description: true,
+        pw: true,
+        pwCheck: true,
+      });
       return; // 한개라도 비거나 조건 안맞으면 안 보냄
     }
     const data = await create({
@@ -61,13 +68,18 @@ export default function StudyCreate() {
           label="닉네임"
           type="text"
           placeholder="닉네임을 입력해 주세요"
-          onChange={(e) => setNickname(e.target.value)}
+          onChange={(e) => {
+            setNickname(e.target.value);
+            setTouched((prev) => ({ ...prev, nickname: true }));
+          }}
           error={
-            !nickname.trim()
-              ? '*닉네임을 입력해주세요'
-              : nickname.length > 5
-                ? '*닉네임은 5글자 이하여야 합니다'
-                : ''
+            !touched.nickname
+              ? ''
+              : !nickname.trim()
+                ? '*닉네임을 입력해주세요'
+                : nickname.length > 5
+                  ? '*닉네임은 5글자 이하여야 합니다'
+                  : ''
           }
         />
         <Input
@@ -76,13 +88,18 @@ export default function StudyCreate() {
           label="스터디 이름"
           type="text"
           placeholder="스더디 이름을 입력해 주세요"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            setTouched((prev) => ({ ...prev, title: true }));
+          }}
           error={
-            !title.trim()
-              ? '*스터디 이름을 입력해주세요'
-              : title.length > 5
-                ? '*스터디 이름은 5글자 이하여야 합니다'
-                : ''
+            !touched.title
+              ? ''
+              : !title.trim()
+                ? '*스터디 이름을 입력해주세요'
+                : title.length > 5
+                  ? '*스터디 이름은 5글자 이하여야 합니다'
+                  : ''
           }
         />
         <Textarea
@@ -90,17 +107,22 @@ export default function StudyCreate() {
           value={description}
           label="소개"
           placeholder="소개 멘트를 작성해 주세요"
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => {
+            setDescription(e.target.value);
+            setTouched((prev) => ({ ...prev, description: true }));
+          }}
           error={
-            !description.trim()
-              ? '*소개 멘트를 작성해주세요'
-              : description.length > 500
-                ? '*소개 멘트는 500자 이하여야 합니다'
-                : ''
+            !touched.description
+              ? ''
+              : !description.trim()
+                ? '*소개 멘트를 작성해주세요'
+                : description.length > 500
+                  ? '*소개 멘트는 500자 이하여야 합니다'
+                  : ''
           }
         />
         <span className={styles.bgText}>배경을 선택해주세요</span>
-        <div className={clsx(styles.bgBox, !bgSelected && styles.error)}>
+        <div className={styles.bgBox}>
           <div className={styles.bgItem} onClick={() => setBgSelected('img1')}>
             <div className={styles.img1}></div>
             {bgSelected === 'img1' && (
@@ -198,16 +220,16 @@ export default function StudyCreate() {
             )}
           </div>
         </div>
-        {!bgSelected && (
-          <span className={styles.bgErrorMessage}>*배경을 선택해 주세요</span>
-        )}
 
         <Input
           className={styles.password}
           label="비밀번호"
           type={showPw ? 'text' : 'password'}
           value={pw}
-          onChange={(e) => setPw(e.target.value)}
+          onChange={(e) => {
+            setPw(e.target.value);
+            setTouched((prev) => ({ ...prev, pw: true }));
+          }}
           placeholder="비밀번호를 입력해 주세요"
           rightIcon={
             <img
@@ -219,11 +241,13 @@ export default function StudyCreate() {
           }
           onRightIconClick={() => setShowPw((v) => !v)}
           error={
-            !pw.trim()
-              ? '*비밀번호를 입력해 주세요'
-              : pw.length < 8 || pw.length > 15
-                ? '*비밀번호는 8자 이상 15자 이하여야 합니다'
-                : ''
+            !touched.pw
+              ? ''
+              : !pw.trim()
+                ? '*비밀번호를 입력해 주세요'
+                : pw.length < 8 || pw.length > 15
+                  ? '*비밀번호는 8자 이상 15자 이하여야 합니다'
+                  : ''
           }
         />
         <Input
@@ -231,7 +255,10 @@ export default function StudyCreate() {
           label="비밀번호 확인"
           type={showPwCheck ? 'text' : 'password'}
           value={pwCheck}
-          onChange={(e) => setPwCheck(e.target.value)}
+          onChange={(e) => {
+            setPwCheck(e.target.value);
+            setTouched((prev) => ({ ...prev, pwCheck: true }));
+          }}
           placeholder="비밀번호를 다시 한 번 입력해 주세요"
           rightIcon={
             <img
@@ -243,21 +270,23 @@ export default function StudyCreate() {
           }
           onRightIconClick={() => setShowPwCheck((v) => !v)}
           error={
-            !pwCheck.trim()
-              ? '*비밀번호를 다시 한 번 입력해 주세요'
-              : pwCheck.length < 8 || pwCheck.length > 15
-                ? '*비밀번호는 8자 이상 15자 이하여야 합니다'
-                : pw !== pwCheck
-                  ? '*비밀번호가 일치하지 않습니다'
-                  : ''
+            !touched.pwCheck
+              ? ''
+              : !pwCheck.trim()
+                ? '*비밀번호를 다시 한 번 입력해 주세요'
+                : pwCheck.length < 8 || pwCheck.length > 15
+                  ? '*비밀번호는 8자 이상 15자 이하여야 합니다'
+                  : pw !== pwCheck
+                    ? '*비밀번호가 일치하지 않습니다'
+                    : ''
           }
         />
         <Button
           className={styles.button}
           text="만들기"
           onClick={handleSubmit}
-          disabled={!isValid}
-          color={isValid ? 'brand' : 'gray'}
+          disabled={isTouched && !isValid}
+          color={!isTouched || isValid ? 'brand' : 'gray'}
         />
       </main>
     </Container>

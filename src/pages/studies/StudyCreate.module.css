@@ -43,17 +43,6 @@
   border-radius: 16px;
   margin-bottom: 24px;
 }
-.bgBox.error {
-  outline: 1px solid var(--red-error_C41013);
-  outline-offset: 1px;
-  margin-bottom: 8px;
-}
-.bgErrorMessage {
-  font: var(--typography-400-14);
-  color: var(--red-error_C41013);
-  display: block;
-  margin-bottom: 24px;
-}
 
 .img1,
 .img2,
