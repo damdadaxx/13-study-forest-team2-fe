@@ -1,38 +1,50 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
 import { createFocus } from '@/api/focus.js';
 
-import { useStudy } from '@/hooks/useStudy.js';
-
-import { formatTimerDisplay } from '@/utils/time.js';
-
 import {
   BASE_DURATION,
   TOAST_COLOR,
   TOAST_MESSAGE,
-} from '@/pages/focus/focus.constants.js';
+} from '@/constants/constants.js';
+
+import { useStudy } from '@/hooks/useStudy.js';
+
+import { formatTimerDisplay } from '@/utils/time.js';
+
 import styles from '@/pages/focus/Focus.module.css';
 import FocusInfo from '@/pages/focus/FocusInfo';
 import FocusTimer from '@/pages/focus/FocusTimer';
 
+import PasswordModal from '@/components/common/Modal/PasswordModal';
 import Toast from '@/components/common/Toast/Toast';
 
 export default function Focus() {
   const { studyId } = useParams();
+  const navigate = useNavigate();
 
+  // 데이터 조회
   const studyResponse = useStudy(studyId);
   const study = studyResponse?.data;
 
+  // 타이머 상태
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+
+  // 포인트 상태
   const [currentTotalPoint, setCurrentTotalPoint] = useState(null);
 
+  // Toast 상태
   const [isToastOpen, setIsToastOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastColor, setToastColor] = useState(TOAST_COLOR.success);
+
+  // 비밀번호 모달 상태
+  const [isHabitPasswordModalOpen, setIsHabitPasswordModalOpen] =
+    useState(false);
 
   function showToast(message, color = TOAST_COLOR.success) {
     setToastMessage(message);
@@ -74,6 +86,18 @@ export default function Focus() {
     }
   }
 
+  function handleOpenHabitPasswordModal() {
+    setIsHabitPasswordModalOpen(true);
+  }
+
+  function handleCloseHabitPasswordModal() {
+    setIsHabitPasswordModalOpen(false);
+  }
+
+  function handleConfirmHabitPassword() {
+    navigate(`/studies/${studyId}/habits`);
+  }
+
   useEffect(() => {
     if (!isRunning) return;
 
@@ -87,6 +111,7 @@ export default function Focus() {
   }, [isRunning]);
 
   const displaySeconds = BASE_DURATION - elapsedSeconds;
+
   // 음수 중복처리 제거 time.js에서 적용 중
   const displayTime = formatTimerDisplay(displaySeconds);
   const baseTime = formatTimerDisplay(BASE_DURATION);
@@ -106,7 +131,11 @@ export default function Focus() {
   return (
     <Container className={styles.focusContainer}>
       <div className={styles.focusPage}>
-        <FocusInfo study={study} totalPoint={totalPoint} />
+        <FocusInfo
+          study={study}
+          totalPoint={totalPoint}
+          onClickHabit={handleOpenHabitPasswordModal}
+        />
         <FocusTimer
           displayTime={displayTime}
           baseTime={baseTime}
@@ -124,6 +153,16 @@ export default function Focus() {
           isDisplay={isToastOpen}
           onClose={closeToast}
           color={toastColor}
+        />
+
+        <PasswordModal
+          isOpen={isHabitPasswordModalOpen}
+          onClose={handleCloseHabitPasswordModal}
+          nickname={study.nickname}
+          title={study.title}
+          studyId={studyId}
+          confirmText="오늘의 습관 시작하기"
+          onConfirm={handleConfirmHabitPassword}
         />
       </div>
     </Container>

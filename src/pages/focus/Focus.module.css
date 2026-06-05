@@ -58,7 +58,7 @@
 }
 
 .timerArea {
-  margin-top: 100px;
+  margin-top: 47px;
 }
 
 .timerText {
@@ -81,20 +81,20 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  margin: 26px auto 0 auto;
+  margin: 24px auto 0 auto;
   padding: 4px 12px;
   border-radius: 20px;
   width: fit-content;
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+.timerIconHidden {
+  visibility: hidden;
+}
+
 .timerIcon img {
   width: 19px;
   height: 19px;
-}
-/* active 시 마진 변경*/
-.timerAreaActive {
-  margin-top: 45px;
 }
 
 .redCount {
@@ -114,11 +114,7 @@
   }
 
   .timerArea {
-    margin-top: 94px;
-  }
-
-  .timerAreaActive {
-    margin-top: 45px;
+    margin-top: 41px;
   }
 
   .timerText {
@@ -154,11 +150,7 @@
   }
 
   .timerArea {
-    margin-top: 64px;
-  }
-
-  .timerAreaActive {
-    margin-top: 17px;
+    margin-top: 11px;
   }
 
   .timerText {
