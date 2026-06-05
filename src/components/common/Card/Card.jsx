@@ -28,7 +28,7 @@ export default function Card({
       <div className={styles.top}>
         <div className={styles.titleBox}>
           <p className={styles.title}>
-            <span className={styles.nickname}>{nickname}</span>의 {title} 스터디
+            <span className={styles.nickname}>{nickname}</span>의 {title}
           </p>
           <TagPoint
             className={styles.point}

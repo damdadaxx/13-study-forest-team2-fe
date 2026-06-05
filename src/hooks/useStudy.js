@@ -52,7 +52,7 @@ export function useStudies({ keyword, cursor, limit, sort }) {
       }
     };
     fetchStudies();
-  }, [query]);
+  }, [query, cursor]);
 
   return studies;
 }
