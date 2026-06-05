@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
-import { createFocus } from '@/api/study.js';
+import { createFocus } from '@/api/focus.js';
 
 import { useStudy } from '@/hooks/useStudy.js';
 
