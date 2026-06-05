@@ -42,20 +42,6 @@ export default function StudyDetail() {
           navigate('/');
         },
       },
-      habit: {
-        confirmText: '오늘의 습관 시작하기',
-        onConfirm: async (_pw) => {
-          // TODO: createHabit API 연결
-          navigate(`/studies/${studyId}/habits`);
-        },
-      },
-      focus: {
-        confirmText: '오늘의 집중 시작하기',
-        onConfirm: async (_pw) => {
-          // TODO: createFocus API 연결
-          navigate(`/studies/${studyId}/focus`);
-        },
-      },
     }),
     [studyId, navigate],
   );
