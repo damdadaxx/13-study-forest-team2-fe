@@ -46,7 +46,7 @@ export default function StudyEmoji({ studyId }) {
       document.removeEventListener('click', handleClickWindow);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [studyId]);
+  }, [studyId, fetchEmojis]);
 
   return (
     <div className={styles.topArea}>
@@ -65,7 +65,7 @@ export default function StudyEmoji({ studyId }) {
           ))}
 
           {/* 이모지 더보기 버튼 */}
-          {emojiData?.length > 4 && (
+          {emojiData?.length > 3 && (
             <button
               className={styles.btnMoreEmoji}
               type="button"
@@ -86,7 +86,7 @@ export default function StudyEmoji({ studyId }) {
           )}
 
           {/* 이모지 더보기 판넬 */}
-          {emojiModal === 'moreEmoji' && (
+          {emojiModal === 'moreEmoji' && emojiData?.length > 3 && (
             <div
               className={styles.moreEmojiPanel}
               onClick={(e) => e.stopPropagation()}
