@@ -3,6 +3,8 @@ import { useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
+import { getHabits } from '@/api/habit';
+
 import styles from '@/pages/habits/Habit.module.css';
 import HabitModal from '@/pages/habits/HabitModal';
 
@@ -25,6 +27,34 @@ function formatNow(date) {
 
 export default function Habit() {
   const { studyId } = useParams();
+
+  // 습관 목록 + 로딩/에러
+  const [habits, setHabits] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(null);
+
+  // 습관 조회 - getHabits() 가 res.json() 통째 반환 -> result.data.habits 로 깐다
+  useEffect(() => {
+    let ignore = false;
+
+    async function fetchHabits() {
+      setLoading(true);
+      setLoadError(null);
+      try {
+        const result = await getHabits(studyId);
+        if (!ignore) setHabits(result.data.habits);
+      } catch (err) {
+        if (!ignore) setLoadError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    fetchHabits();
+    return () => {
+      ignore = true;
+    };
+  }, [studyId]);
 
   const [now, setNow] = useState(() => new Date());
 
