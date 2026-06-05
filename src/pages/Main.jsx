@@ -18,6 +18,9 @@ import styles from '@/pages/Main.module.css';
 
 import Card from '@/components/common/Card/Card.jsx';
 
+import IcSearch from '@/assets/images/icons/ic_search.png';
+import IcToggle from '@/assets/images/icons/ic_toggle.png';
+
 export default function Main() {
   const navigate = useNavigate();
 
@@ -116,7 +119,7 @@ export default function Main() {
           <div className={styles.searchBox}>
             <img
               className={styles.searchIcon}
-              src="/src/assets/images/icons/ic_search.png"
+              src={IcSearch}
               alt="searchIcon"
             />
             <input
@@ -133,7 +136,7 @@ export default function Main() {
           <div className={styles.selectBox}>
             <img
               className={styles.selectIcon}
-              src="/src/assets/images/icons/ic_toggle.png"
+              src={IcToggle}
               alt="toggleIcon"
             />
             <div className={styles.select}>

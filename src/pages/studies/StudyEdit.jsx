@@ -11,6 +11,11 @@ import Button from '@/components/common/Button/Button.jsx';
 import Input from '@/components/common/Input/Input.jsx';
 import Textarea from '@/components/common/Textarea/Textarea.jsx';
 
+import CardImg5 from '@/assets/images/card/img5.jpg';
+import CardImg6 from '@/assets/images/card/img6.jpg';
+import CardImg7 from '@/assets/images/card/img7.jpg';
+import CardImg8 from '@/assets/images/card/img8.jpg';
+import IcBgSelected from '@/assets/images/icons/ic_bg_selected.svg';
 import visibilityOff from '@/assets/images/icons/ic_visibility_off.svg';
 import visibilityOn from '@/assets/images/icons/ic_visibility_on.svg';
 
@@ -116,7 +121,7 @@ export default function StudyEdit() {
             {bgSelected === 'img1' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
@@ -126,7 +131,7 @@ export default function StudyEdit() {
             {bgSelected === 'img2' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
@@ -136,7 +141,7 @@ export default function StudyEdit() {
             {bgSelected === 'img3' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
@@ -146,63 +151,47 @@ export default function StudyEdit() {
             {bgSelected === 'img4' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
           </div>
           <div className={styles.bgItem} onClick={() => setBgSelected('img5')}>
-            <img
-              className={styles.img5}
-              src="/src/assets/images/card/img5.jpg"
-              alt="img5"
-            />
+            <img className={styles.img5} src={CardImg5} alt="img5" />
             {bgSelected === 'img5' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
           </div>
           <div className={styles.bgItem} onClick={() => setBgSelected('img6')}>
-            <img
-              className={styles.img6}
-              src="/src/assets/images/card/img6.jpg"
-              alt="img6"
-            />
+            <img className={styles.img6} src={CardImg6} alt="img6" />
             {bgSelected === 'img6' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
           </div>
           <div className={styles.bgItem} onClick={() => setBgSelected('img7')}>
-            <img
-              className={styles.img7}
-              src="/src/assets/images/card/img7.jpg"
-              alt="img7"
-            />
+            <img className={styles.img7} src={CardImg7} alt="img7" />
             {bgSelected === 'img7' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
           </div>
           <div className={styles.bgItem} onClick={() => setBgSelected('img8')}>
-            <img
-              className={styles.img8}
-              src="/src/assets/images/card/img8.jpg"
-              alt="img8"
-            />
+            <img className={styles.img8} src={CardImg8} alt="img8" />
             {bgSelected === 'img8' && (
               <img
                 className={styles.selectedIcon}
-                src="/src/assets/images/icons/ic_bg_selected.svg"
+                src={IcBgSelected}
                 alt="선택됨"
               />
             )}
