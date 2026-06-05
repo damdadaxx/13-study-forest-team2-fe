@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
@@ -13,6 +13,7 @@ import HabitModal from '@/pages/habits/HabitModal';
 
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
 import ButtonText from '@/components/common/Button/ButtonText';
+import PasswordModal from '@/components/common/Modal/PasswordModal';
 
 // 2026-06-04 오후 3:06 형태로 포맷
 function formatNow(date) {
@@ -30,6 +31,7 @@ function formatNow(date) {
 
 export default function Habit() {
   const { studyId } = useParams();
+  const navigate = useNavigate();
 
   // 스터디명 연동 (useStudy는 언래핑 안 함 -> data.title로 깐다)
   const studyData = useStudy(studyId);
@@ -41,26 +43,25 @@ export default function Habit() {
   const [loadError, setLoadError] = useState(null);
 
   // 습관 조회 - getHabits() 가 res.json() 통째 반환 -> result.data.habits 로 깐다
-  useEffect(() => {
-    let ignore = false;
-
-    async function fetchHabits() {
-      setLoading(true);
-      setLoadError(null);
-      try {
-        const result = await getHabits(studyId);
-        if (!ignore) setHabits(result.data.habits);
-      } catch (err) {
-        if (!ignore) setLoadError(err.message);
-      } finally {
-        if (!ignore) setLoading(false);
-      }
+  async function fetchHabits() {
+    setLoading(true);
+    setLoadError(null);
+    try {
+      const result = await getHabits(studyId);
+      setHabits(result.data.habits);
+    } catch (err) {
+      setLoadError(err.message);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    fetchHabits();
-    return () => {
-      ignore = true;
+  useEffect(() => {
+    const load = async () => {
+      await fetchHabits();
     };
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studyId]);
 
   // 체크 토글 - 낙관적 업데이트 후 실패 시 롤백
@@ -162,12 +163,22 @@ export default function Habit() {
       {/* 습관 목록 편집 모달 */}
       <HabitModal
         isOpen={modals.listModal}
-        onClose={() => setModals({ ...modals, listModal: false })}
+        onClose={() => {
+          setModals({ ...modals, listModal: false });
+          fetchHabits(); // 수정완료 후 목록 즉시 반영
+        }}
         studyId={studyId}
       />
 
-      {/* TODO: 오늘의 집중 진입 비밀번호 검증 모달 (formModal)
-          인증 성공 시 setModals 로 닫고 navigate('/focus')*/}
+      {/* 오늘의 집중 진입 비밀번호 검증 모달 */}
+      <PasswordModal
+        isOpen={modals.formModal}
+        onClose={() => setModals({ ...modals, formModal: false })}
+        nickname={nickname}
+        title={title}
+        studyId={studyId}
+        onConfirm={() => navigate(`/studies/${studyId}/focus`)}
+      />
     </Container>
   );
 }
