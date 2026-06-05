@@ -17,8 +17,8 @@ const useEmojis = (studyId) => {
   }, [studyId]);
 
   useEffect(() => {
-    fetchEmojis();
-  }, [fetchEmojis]);
+    fetchEmojis(); // eslint-disable-line react-hooks/set-state-in-effect
+  }, [studyId]);
 
   return { emojiData, fetchEmojis };
 };
