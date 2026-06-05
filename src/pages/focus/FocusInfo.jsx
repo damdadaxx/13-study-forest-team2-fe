@@ -3,7 +3,7 @@ import styles from '@/pages/focus/Focus.module.css';
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
 import TagPoint from '@/components/common/Tag/TagPoint';
 
-export default function FocusInfo({ study, totalPoint }) {
+export default function FocusInfo({ study, totalPoint, onClickHabit }) {
   return (
     <section className={styles.focusTop}>
       <div className={styles.titleRow}>
@@ -13,7 +13,7 @@ export default function FocusInfo({ study, totalPoint }) {
         </h1>
 
         <div className={styles.actions}>
-          <ButtonHabit text="오늘의 습관" href="/habits" />
+          <ButtonHabit text="오늘의 습관" onClick={onClickHabit} />
           <ButtonHabit text="홈" href="/" />
         </div>
       </div>

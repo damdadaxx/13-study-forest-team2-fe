@@ -25,21 +25,17 @@ export default function FocusTimer({
     <section className={styles.timerSection}>
       <h2 className={styles.sectionTitle}>오늘의 집중</h2>
 
-      {shouldShowTimerIcon && (
-        <div className={styles.timerIcon}>
-          <img src={IcTimer} alt="설정 시간 아이콘" />
-          <span>{baseTime}</span>
-        </div>
-      )}
-
       <div
         className={clsx(
-          styles.timerArea,
-          // timerIcon이 생길 때 화면 밀림
-          // Active에서만 margin을 줄여서 적용
-          shouldShowTimerIcon && styles.timerAreaActive,
+          styles.timerIcon,
+          !shouldShowTimerIcon && styles.timerIconHidden,
         )}
       >
+        <img src={IcTimer} alt="설정 시간 아이콘" />
+        <span>{baseTime}</span>
+      </div>
+
+      <div className={styles.timerArea}>
         <p
           className={clsx(
             styles.timerText,
