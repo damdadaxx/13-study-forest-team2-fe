@@ -46,7 +46,7 @@ export default function StudyDetail() {
         confirmText: '오늘의 습관 시작하기',
         onConfirm: async (_pw) => {
           // TODO: createHabit API 연결
-          navigate(`/studies/${studyId}/habit`);
+          navigate(`/studies/${studyId}/habits`);
         },
       },
       focus: {
