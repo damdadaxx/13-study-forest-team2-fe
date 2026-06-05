@@ -9,7 +9,6 @@ import { useStudy } from '@/hooks/useStudy';
 
 import { copyToClipboard } from '@/utils/copyToClipboard';
 
-import PasswordModal from '@/pages/studies/PasswordModal';
 import styles from '@/pages/studies/StudyDetail.module.css';
 import StudyEmoji from '@/pages/studies/StudyEmoji';
 
@@ -17,6 +16,7 @@ import Button from '@/components/common/Button/Button';
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
 import ButtonText from '@/components/common/Button/ButtonText';
 import Modal from '@/components/common/Modal/Modal';
+import PasswordModal from '@/components/common/Modal/PasswordModal';
 import TagPoint from '@/components/common/Tag/TagPoint';
 
 export default function StudyDetail() {
@@ -132,7 +132,7 @@ export default function StudyDetail() {
         title={title}
         studyId={studyId}
         confirmText={currentConfig?.confirmText}
-        onConfirm={currentConfig?.onConfirm}
+        onConfirm={PASSWORD_MODAL_CONFIG[passwordModalType]?.onConfirm}
       />
     </Container>
   );

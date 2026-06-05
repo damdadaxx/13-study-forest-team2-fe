@@ -2,11 +2,10 @@ import { useState } from 'react';
 
 import { verifyStudyPassword } from '@/api/study.js';
 
-import styles from '@/pages/studies/PasswordModal.module.css';
-
 import Button from '@/components/common/Button/Button';
 import Input from '@/components/common/Input/Input.jsx';
 import Modal from '@/components/common/Modal/Modal.jsx';
+import styles from '@/components/common/Modal/PasswordModal.module.css';
 import Toast from '@/components/common/Toast/Toast.jsx';
 
 export default function PasswordModal({
@@ -63,8 +62,9 @@ export default function PasswordModal({
         return;
       }
 
+      const confirmFn = onConfirm;
       handleClose();
-      await onConfirm(pw);
+      await confirmFn(pw);
     } catch (err) {
       console.error(err);
       showToast('비밀번호 확인 중 오류가 발생했습니다.', 'warning');
