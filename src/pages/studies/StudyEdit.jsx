@@ -5,7 +5,7 @@ import Container from '@/layouts/Container/Container';
 
 import { getStudyById } from '@/api/study.js';
 
-import PasswordModal from '@/pages/studies/PasswordModal';
+import PasswordModal from '@/components/common/Modal/PasswordModal';
 
 export default function StudyEdit() {
   const { studyId } = useParams();
