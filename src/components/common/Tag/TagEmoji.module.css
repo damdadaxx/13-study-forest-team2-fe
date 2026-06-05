@@ -1,0 +1,38 @@
+.emojiTag {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.emojiTag.sm {
+  height: 26px;
+}
+.emojiTag.lg {
+  height: 31px;
+}
+
+.emojiTag.sm .emoji,
+.emojiTag.sm .count {
+  font-size: 12px;
+  line-height: calc(14 / 12);
+}
+
+.emojiTag.lg .emoji,
+.emojiTag.lg .count {
+  font-size: 16px;
+  line-height: calc(19 / 16);
+}
+
+.emoji {
+  color: var(--black-black_414141, #414141);
+}
+
+.count {
+  color: var(--white-white_FFFFFF, #ffffff);
+  font-weight: 400;
+}

@@ -11,3 +11,35 @@
  * 또는 개별 import:
  * import { SORT_OPTIONS } from '@/constants/pagination';
  */
+
+/**
+ * CONTAINER_RULES
+ * 1. sm : 696px - 상세페이지
+ * 2. md (Default) : 1200px - 스터디 상세, 홈
+ * 3. lg : 1248px - 오늘의 집중, 오늘의 습관
+ */
+export const CONTAINER_RULES = [
+  { pattern: /\/edit$/, size: 'sm' }, // /edit으로 끝나면
+  { pattern: /\/new$/, size: 'sm' }, // /new으로 끝나면
+  { pattern: /\/studies\/\d+$/, size: 'md' }, // /studies/숫자로 끝나면
+  { pattern: /habits/, size: 'lg' },
+  { pattern: /focus/, size: 'lg' },
+];
+export const SORT_OPTIONS = [
+  { value: 'recent', label: '최근 순' },
+  { value: 'oldest', label: '오래된 순' },
+  { value: 'pointDesc', label: '많은 포인트 순' },
+  { value: 'pointAsc', label: '적은 포인트 순' },
+];
+
+export const BASE_DURATION = 1500;
+
+export const TOAST_MESSAGE = {
+  pause: '🚨 집중이 중단되었습니다.',
+  saveError: '집중 기록을 저장하지 못했습니다.',
+};
+
+export const TOAST_COLOR = {
+  success: 'success',
+  warning: 'warning',
+};

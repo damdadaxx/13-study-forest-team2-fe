@@ -1,0 +1,21 @@
+.chip {
+  width: 400px;
+  height: 54px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  font: var(--typography-700-16);
+  text-align: center;
+
+  background-color: var(--gray-gray_EEEEEE);
+  color: var(--gray-gray_818181);
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.checked {
+  background-color: var(--brand-brand_99C08E);
+  color: var(--white-white_FFFFFF);
+}

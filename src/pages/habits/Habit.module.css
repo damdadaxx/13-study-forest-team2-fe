@@ -1,0 +1,138 @@
+.page {
+  background-color: var(--white-white_FFFFFF);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.studyName {
+  font: var(--typography-800-32);
+  color: var(--black-black_414141);
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* 현재 시간 */
+.clock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.clockLabel {
+  font: var(--typography-400-18);
+  color: var(--gray-gray_818181);
+}
+
+.clockTag {
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: var(--typography-500-16);
+  color: var(--black-black_414141);
+}
+
+/* 습관 섹션 */
+.habitSection {
+  border: 1px solid var(--gray-gray_DDDDDD);
+  border-radius: 20px;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.habitHeader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  height: 29px;
+}
+
+.habitTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font: var(--typography-800-24);
+  color: var(--black-black_414141);
+}
+
+.habitHeader > button {
+  position: absolute;
+  left: calc(50% + 152px);
+}
+
+/* 습관 캡슐 목록 */
+.habitList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 빈 상태 */
+.empty {
+  height: 498px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  font: var(--typography-500-20);
+  color: var(--gray-gray_818181);
+  text-align: center;
+}
+
+/* 조회 에러 메시지 */
+.message {
+  padding: 40px 0;
+  text-align: center;
+  font: var(--typography-500-16);
+  color: var(--gray-gray_818181);
+}
+
+/* 반응형 */
+@media (max-width: 1023px) {
+  .page {
+    padding: 32px;
+    gap: 20px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .studyName {
+    font: var(--typography-800-24);
+  }
+
+  .page {
+    padding: 20px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+}

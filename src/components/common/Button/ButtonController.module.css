@@ -1,0 +1,47 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 333px;
+  height: 60px;
+  border-radius: 50px;
+  background: var(--brand-brand_99C08E);
+  cursor: pointer;
+}
+
+.button:disabled {
+  background: var(--gray-gray_818181);
+  cursor: default;
+}
+
+.icon {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin-left: -27px;
+}
+
+.text {
+  font: var(--typography-800-28);
+  color: #fff;
+}
+
+/* 모바일: 화면 너비 767px 이하일 때 */
+@media (max-width: 767px) {
+  .button {
+    width: 140px;
+    height: 45px;
+    gap: 8px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-left: -8px;
+  }
+
+  .text {
+    font: var(--typography-800-18);
+  }
+}

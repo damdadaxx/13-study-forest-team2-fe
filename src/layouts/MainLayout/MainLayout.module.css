@@ -1,0 +1,5 @@
+.mainLayout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-bg_F6F4EF);
+}

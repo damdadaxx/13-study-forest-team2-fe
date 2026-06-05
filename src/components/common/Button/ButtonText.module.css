@@ -1,0 +1,22 @@
+.button {
+  cursor: pointer;
+}
+
+.text {
+  font: var(--typography-500-16);
+  white-space: nowrap;
+}
+
+.button.green .text {
+  color: var(--green-green_text_578246);
+}
+.button.gray .text {
+  color: var(--gray-gray_818181);
+}
+
+/* 모바일: 화면 너비 767px 이하일 때 */
+@media (max-width: 767px) {
+  .text {
+    font: var(--typography-500-12);
+  }
+}

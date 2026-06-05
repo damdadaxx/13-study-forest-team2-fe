@@ -1,0 +1,163 @@
+/* focus container 마진 안넣어도 됨 전체 header에서 계산 중 */
+
+.focusPage {
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--white-white_FFFFFF);
+}
+
+.focusTop {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.studyTitle {
+  margin: 0;
+  color: var(--black-black_414141);
+  font: var(--typography-800-32);
+}
+
+.pointInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pointLabel {
+  margin: 0;
+  color: var(--gray-gray_818181);
+  font: var(--typography-400-18);
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.timerSection {
+  margin-top: 24px;
+  padding: 40px 24px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid var(--gray-gray_DDDDDD);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--black-black_414141);
+  font: var(--typography-800-24);
+}
+
+.timerArea {
+  margin-top: 47px;
+}
+
+.timerText {
+  margin: 0;
+  color: var(--black-black_414141);
+  font: var(--typography-800-150);
+}
+
+.controllerArea {
+  margin-top: 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+/* 타이머 아이콘 */
+.timerIcon {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 24px auto 0 auto;
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.timerIconHidden {
+  visibility: hidden;
+}
+
+.timerIcon img {
+  width: 19px;
+  height: 19px;
+}
+
+.redCount {
+  color: #f50e0e;
+}
+
+.grayCount {
+  color: var(--gray-gray_818181);
+}
+@media (max-width: 1023px) {
+  .focusPage {
+    padding: 24px;
+  }
+
+  .timerSection {
+    margin-top: 40px;
+  }
+
+  .timerArea {
+    margin-top: 41px;
+  }
+
+  .timerText {
+    font: var(--typography-800-120);
+  }
+
+  .controllerArea {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .focusPage {
+    padding: 16px;
+  }
+
+  .titleRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .studyTitle {
+    font: var(--typography-800-24);
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .timerSection {
+    margin-top: 24px;
+    padding: 24px 16px 52px;
+  }
+
+  .timerArea {
+    margin-top: 11px;
+  }
+
+  .timerText {
+    font: var(--typography-800-80);
+  }
+
+  .controllerArea {
+    margin-top: 64px;
+  }
+}
