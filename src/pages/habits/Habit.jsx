@@ -3,9 +3,12 @@ import { useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
-import { getHabits } from '@/api/habit';
+import { getHabits, checkHabit } from '@/api/habit';
+
+import { useStudy } from '@/hooks/useStudy';
 
 import styles from '@/pages/habits/Habit.module.css';
+import HabitChip from '@/pages/habits/HabitChip';
 import HabitModal from '@/pages/habits/HabitModal';
 
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
@@ -27,6 +30,10 @@ function formatNow(date) {
 
 export default function Habit() {
   const { studyId } = useParams();
+
+  // 스터디명 연동 (useStudy는 언래핑 안 함 -> data.title로 깐다)
+  const studyData = useStudy(studyId);
+  const { nickname, title } = studyData?.data ?? {};
 
   // 습관 목록 + 로딩/에러
   const [habits, setHabits] = useState([]);
@@ -56,6 +63,26 @@ export default function Habit() {
     };
   }, [studyId]);
 
+  // 체크 토글 - 낙관적 업데이트 후 실패 시 롤백
+  async function handleToggle(habitId, current) {
+    const next = !current;
+
+    // 1) 낙관적: 화면 먼저 바꾼다
+    setHabits((prev) =>
+      prev.map((h) => (h.id === habitId ? { ...h, isChecked: next } : h)),
+    );
+
+    // 2) 서버 반영
+    try {
+      await checkHabit(studyId, habitId, next);
+    } catch {
+      // 3) 실패 시 롤백
+      setHabits((prev) =>
+        prev.map((h) => (h.id === habitId ? { ...h, isChecked: current } : h)),
+      );
+    }
+  }
+
   const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
@@ -73,8 +100,9 @@ export default function Habit() {
     <Container>
       <div className={styles.page}>
         <header className={styles.header}>
-          <h1 className={styles.studyName}>연우의 개발공장</h1>
-          {/* 스터디 명 하드코딩, 추후 연동 */}
+          <h1 className={styles.studyName}>
+            <span>{nickname}</span>의 {title}
+          </h1>
           <nav className={styles.nav}>
             {/* 오늘의 집중 이동 전 비밀번호 검증 필요 -> 모달 오픈 */}
             <ButtonHabit
@@ -100,7 +128,30 @@ export default function Habit() {
             />
           </div>
 
-          {/* TODO: 습관 목록 / 빈 상태 (habit-list 브랜치) */}
+          {loadError && <p className={styles.message}>{loadError}</p>}
+
+          {!loadError && !loading && habits.length === 0 && (
+            <div className={styles.empty}>
+              <p>아직 습관이 없어요</p>
+              <p>목록 수정을 눌러 습관을 생성해보세요</p>
+            </div>
+          )}
+
+          {!loadError && habits.length > 0 && (
+            <ul className={styles.habitList}>
+              {habits.map((habit) => (
+                <li key={habit.id}>
+                  <HabitChip
+                    content={habit.content}
+                    isChecked={habit.isChecked}
+                    onClick={() => {
+                      handleToggle(habit.id, habit.isChecked);
+                    }}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </div>
 

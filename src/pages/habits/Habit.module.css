@@ -57,17 +57,61 @@
 }
 
 .habitHeader {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: baseline;
-  gap: 92px;
+  height: 29px;
 }
 
 .habitTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font: var(--typography-800-24);
   color: var(--black-black_414141);
 }
 
+.habitHeader > button {
+  position: absolute;
+  left: calc(50% + 152px);
+}
+
+/* 습관 캡슐 목록 */
+.habitList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 빈 상태 */
+.empty {
+  height: 498px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  font: var(--typography-500-20);
+  color: var(--gray-gray_818181);
+  text-align: center;
+}
+
+/* 조회 에러 메시지 */
+.message {
+  padding: 40px 0;
+  text-align: center;
+  font: var(--typography-500-16);
+  color: var(--gray-gray_818181);
+}
+
+/* 반응형 */
 @media (max-width: 1023px) {
   .page {
     padding: 32px;
