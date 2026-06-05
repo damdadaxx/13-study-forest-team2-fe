@@ -130,6 +130,10 @@ export default function Habit() {
 
           {loadError && <p className={styles.message}>{loadError}</p>}
 
+          {loading && !loadError && (
+            <p className={styles.message}>불러오는 중...</p>
+          )}
+
           {!loadError && !loading && habits.length === 0 && (
             <div className={styles.empty}>
               <p>아직 습관이 없어요</p>
@@ -162,7 +166,7 @@ export default function Habit() {
         studyId={studyId}
       />
 
-      {/* TODO: 오늘의 집중 진입 비밀번호 검증 보달 (formModal)
+      {/* TODO: 오늘의 집중 진입 비밀번호 검증 모달 (formModal)
           인증 성공 시 setModals 로 닫고 navigate('/focus')*/}
     </Container>
   );
