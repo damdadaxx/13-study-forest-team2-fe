@@ -11,45 +11,64 @@ export default function FocusTimer({
   displayTime,
   baseTime,
   isRunning,
+  isStarted,
   isCountDown,
+  isOvertime,
   onStart,
-  pauseButton,
-  resetButton,
+  onPause,
+  onReset,
+  onStop,
 }) {
-  const isStarted = displayTime !== baseTime;
+  const shouldShowTimerIcon = isRunning || isStarted;
 
   return (
     <section className={styles.timerSection}>
       <h2 className={styles.sectionTitle}>오늘의 집중</h2>
 
-      {(isRunning || isStarted) && (
+      {shouldShowTimerIcon && (
         <div className={styles.timerIcon}>
           <img src={IcTimer} alt="설정 시간 아이콘" />
           <span>{baseTime}</span>
         </div>
       )}
 
-      <div className={styles.timerArea}>
-        <p className={clsx(styles.timerText, isCountDown && styles.redCount)}>
+      <div
+        className={clsx(
+          styles.timerArea,
+          // timerIcon이 생길 때 화면 밀림
+          // Active에서만 margin을 줄여서 적용
+          shouldShowTimerIcon && styles.timerAreaActive,
+        )}
+      >
+        <p
+          className={clsx(
+            styles.timerText,
+            isCountDown && styles.redCount,
+            isOvertime && styles.grayCount,
+          )}
+        >
           {displayTime}
         </p>
       </div>
 
       <div className={styles.controllerArea}>
-        {!isStarted && !isRunning ? (
+        {isOvertime ? (
+          <ButtonController variant="secondary" onClick={onStop} />
+        ) : !isStarted && !isRunning ? (
           <ButtonController variant="primary" onClick={onStart} />
         ) : (
           <>
             <ButtonControllerCircle
               variant="secondary"
-              onClick={isRunning ? pauseButton : onStart}
+              color="green"
+              onClick={isRunning ? onPause : onStart}
             />
 
             {/* 비활성화 상태 유지 */}
             <ButtonController variant="secondary" disabled={true} />
 
             {/* 리셋 */}
-            <ButtonControllerCircle variant="primary" onClick={resetButton} />
+            <ButtonControllerCircle variant="primary" onClick={onReset} />
           </>
         )}
       </div>
