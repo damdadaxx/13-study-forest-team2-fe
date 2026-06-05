@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
@@ -16,18 +16,18 @@ import CardImg6 from '@/assets/images/card/img6.jpg';
 import CardImg7 from '@/assets/images/card/img7.jpg';
 import CardImg8 from '@/assets/images/card/img8.jpg';
 import IcBgSelected from '@/assets/images/icons/ic_bg_selected.svg';
-import visibilityOff from '@/assets/images/icons/ic_visibility_off.svg';
-import visibilityOn from '@/assets/images/icons/ic_visibility_on.svg';
 
 export default function StudyEdit() {
-  const [showPw, setShowPw] = useState(false);
-  const [showPwCheck, setShowPwCheck] = useState(false);
   const [pw, setPw] = useState('');
   const [pwCheck, setPwCheck] = useState('');
   const [nickname, setNickname] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [bgSelected, setBgSelected] = useState('');
+
+  // study 데이터가 처음 들어올 때만 초기화
+  const initialized = useRef(false);
+
   const location = useLocation();
   const navigate = useNavigate();
   const password = location.state?.password; //비밀번호 검증 모달에서 이동할 때 넘겨준 값
@@ -39,7 +39,7 @@ export default function StudyEdit() {
   const { studyId } = useParams();
   const study = useStudy(studyId);
   useEffect(() => {
-    if (study?.data) {
+    if (study?.data && !initialized.current) {
       setNickname(study.data.nickname);
       setTitle(study.data.title);
       setDescription(study.data.description);
@@ -200,19 +200,10 @@ export default function StudyEdit() {
         <Input
           className={styles.password}
           label="새 비밀번호"
-          type={showPw ? 'text' : 'password'}
+          type="password"
           value={pw}
           onChange={(e) => setPw(e.target.value)}
           placeholder="비밀번호를 입력해 주세요"
-          rightIcon={
-            <img
-              src={showPw ? visibilityOn : visibilityOff}
-              alt={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
-              width={24}
-              height={24}
-            />
-          }
-          onRightIconClick={() => setShowPw((v) => !v)}
           error={
             pw === ''
               ? ''
@@ -224,19 +215,10 @@ export default function StudyEdit() {
         <Input
           className={styles.passwordCheck}
           label="새 비밀번호 확인"
-          type={showPwCheck ? 'text' : 'password'}
+          type="password"
           value={pwCheck}
           onChange={(e) => setPwCheck(e.target.value)}
           placeholder="비밀번호를 다시 한 번 입력해 주세요"
-          rightIcon={
-            <img
-              src={showPwCheck ? visibilityOn : visibilityOff}
-              alt={showPwCheck ? '비밀번호 숨기기' : '비밀번호 보기'}
-              width={24}
-              height={24}
-            />
-          }
-          onRightIconClick={() => setShowPwCheck((v) => !v)}
           error={
             pw === ''
               ? ''
