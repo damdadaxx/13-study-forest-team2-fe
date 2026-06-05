@@ -9,7 +9,7 @@ import { copyToClipboard } from '@/utils/copyToClipboard';
 
 import styles from '@/pages/studies/StudyDetail.module.css';
 import StudyEmoji from '@/pages/studies/StudyEmoji';
-import StudyHabitLog from '@/pages/studies/StudyHabitLog';
+// import StudyHabitLog from '@/pages/studies/StudyHabitLog';
 
 import Button from '@/components/common/Button/Button';
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
@@ -102,7 +102,7 @@ export default function StudyDetail() {
 
         {/* TODO: 마크업, 스타일 정리 */}
         {/* 습관 기록표 */}
-        <StudyHabitLog studyId={studyId} habitsData={habits} />
+        {/* <StudyHabitLog studyId={studyId} habitsData={habits} /> */}
       </div>
 
       {/* 공유하기 모달 */}
