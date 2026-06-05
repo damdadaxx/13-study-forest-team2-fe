@@ -1,6 +1,4 @@
-.focusContainer {
-  margin-top: 53px;
-}
+/* focus container 마진 안넣어도 됨 전체 header에서 계산 중 */
 
 .focusPage {
   padding: 40px;
@@ -83,7 +81,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  margin: 12px auto 0 auto;
+  margin: 26px auto 0 auto;
   padding: 4px 12px;
   border-radius: 20px;
   width: fit-content;
@@ -94,14 +92,19 @@
   width: 19px;
   height: 19px;
 }
+/* active 시 마진 변경*/
+.timerAreaActive {
+  margin-top: 45px;
+}
+
 .redCount {
   color: #f50e0e;
 }
-@media (max-width: 1023px) {
-  .focusContainer {
-    margin-top: 16px;
-  }
 
+.grayCount {
+  color: var(--gray-gray_818181);
+}
+@media (max-width: 1023px) {
   .focusPage {
     padding: 24px;
   }
@@ -114,6 +117,10 @@
     margin-top: 94px;
   }
 
+  .timerAreaActive {
+    margin-top: 45px;
+  }
+
   .timerText {
     font: var(--typography-800-120);
   }
@@ -124,10 +131,6 @@
 }
 
 @media (max-width: 767px) {
-  .focusContainer {
-    margin-top: 20px;
-  }
-
   .focusPage {
     padding: 16px;
   }
@@ -152,6 +155,10 @@
 
   .timerArea {
     margin-top: 64px;
+  }
+
+  .timerAreaActive {
+    margin-top: 17px;
   }
 
   .timerText {

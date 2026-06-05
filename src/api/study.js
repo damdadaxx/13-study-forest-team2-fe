@@ -6,3 +6,6 @@ export const getStudies = (query) =>
 export const deleteStudy = (id) => del(`/studies/${id}`); // delete는 훅만들 필욘 없을 것 같아서 여까지만
 export const createStudy = (body) => post(`/studies`, body);
 export const updateStudy = (id, body) => patch(`/studies/${id}`, body);
+
+export const createFocus = (id, duration) =>
+  post(`/studies/${id}/focus`, { duration });
