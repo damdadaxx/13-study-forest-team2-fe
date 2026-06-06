@@ -1,0 +1,34 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.logo {
+}
+
+.code {
+  font: var(--typography-800-150);
+  color: var(--brand-brand_99C08E);
+  margin: 0 0 0.5rem;
+}
+
+.msg {
+  font: var(--typography-700-18);
+  color: var(--gray-gray_818181);
+  margin: 0 0 0.5rem;
+}
+
+.sub {
+  font: var(--typography-400-16);
+  color: var(--gray-gray_818181);
+  margin: 0 0 2.5rem;
+}
+
+.btn {
+  width: 250px !important;
+}
