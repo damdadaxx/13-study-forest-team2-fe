@@ -11,13 +11,11 @@
  * 또는 개별 import:
  * import { SORT_OPTIONS } from '@/constants/pagination';
  */
+import IcHabitEmpty from '@/assets/images/icons/ic_habit_empty.svg';
+import IcHabitGreen1 from '@/assets/images/icons/ic_habit_green_1.svg';
+import IcHabitGreen2 from '@/assets/images/icons/ic_habit_green_2.svg';
+import IcHabitGreen3 from '@/assets/images/icons/ic_habit_green_3.svg';
 
-/**
- * CONTAINER_RULES
- * 1. sm : 696px - 상세페이지
- * 2. md (Default) : 1200px - 스터디 상세, 홈
- * 3. lg : 1248px - 오늘의 집중, 오늘의 습관
- */
 export const CONTAINER_RULES = [
   { pattern: /\/edit$/, size: 'sm' }, // /edit으로 끝나면
   { pattern: /\/new$/, size: 'sm' }, // /new으로 끝나면
@@ -43,3 +41,10 @@ export const TOAST_COLOR = {
   success: 'success',
   warning: 'warning',
 };
+
+/** 스터디 상세 페이지 습관 기록표 아이콘 이미지 */
+export const HABIT_ICONS = [IcHabitGreen1, IcHabitGreen2, IcHabitGreen3];
+export const HABIT_ICON_EMPTY = IcHabitEmpty;
+
+/** 스터디 상세 페이지 습관 기록표 요일 */
+export const DAYS = ['월', '화', '수', '목', '금', '토', '일'];

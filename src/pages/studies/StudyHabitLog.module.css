@@ -1,0 +1,138 @@
+/* 습관 기록표 */
+.habitLog {
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--gray-gray_DDDDDD, #ddd);
+  background: #fff;
+}
+.habitTitle {
+  margin-bottom: 24px;
+  font: var(--typography-800-24);
+  color: var(--black-black_414141, #414141);
+}
+
+/* 데이터 없음 */
+.noData {
+  height: 200px;
+  text-align: center;
+  font: var(--typography-400-16);
+  line-height: 200px;
+}
+
+/* 기록표 */
+.trackerInner {
+  display: flex;
+}
+/* 기록표 헤더 */
+.logHeader {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 246px;
+}
+.emptyDay {
+  height: 26px;
+}
+.contentTitle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 64px;
+  min-width: 152px;
+  padding: 0 24px;
+  font: var(--typography-700-18);
+  text-align: right;
+  color: var(--black-black_414141, #414141);
+}
+
+/* 기록표 바디 */
+.logBody {
+  flex: 1;
+}
+/* 기록표 바디 - 요일 헤더 */
+.days {
+  display: flex;
+  align-items: center;
+  height: 26px;
+}
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.day span {
+  height: 26px;
+  font: var(--typography-400-18);
+  line-height: 26px;
+  color: var(--gray-gray_818181, #818181);
+}
+/* 기록표 바디 - 습관 스티커 컨테이너 */
+
+.habits {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+}
+.stickerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.sticker {
+  display: block;
+}
+
+/* 클립보드 모달 */
+.clipboardText {
+  margin: 30px 0;
+  text-align: center;
+  font: var(--typography-500-18);
+  color: var(--gray-gray_818181, #818181);
+}
+
+/* 태블릿: 화면 너비 1023px 이하 */
+@media (max-width: 1023px) {
+  /* 기록표 헤더 */
+  .logHeader {
+    flex: 0 0 160px;
+  }
+  .contentTitle {
+    min-width: 160px;
+  }
+}
+
+/* 모바일: 화면 너비 700px 이하 */
+@media (max-width: 700px) {
+  /* 습관 기록표 */
+  .logBody {
+    overflow-x: auto;
+  }
+  .logBodyInner {
+    overflow: hidden;
+    width: max-content;
+  }
+
+  /* 기록표 헤더 */
+  .logHeader {
+    flex: 0 0 122px;
+  }
+  .contentTitle {
+    min-width: 122px;
+    font: var(--typography-700-14);
+  }
+
+  /* 기록표 바디 - 요일 헤더 */
+  .day {
+    min-width: 64px;
+  }
+  .day span {
+    font: var(--typography-400-14);
+    line-height: 26px;
+  }
+
+  /* 기록표 바디 - 습관 스티커 컨테이너 */
+  .stickerContainer {
+    min-width: 64px;
+  }
+}
