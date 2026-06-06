@@ -7,11 +7,11 @@ import { getWeekDates, isThisWeek } from '@/utils/dateUtils.js';
 import styles from '@/pages/studies/StudyHabitLog.module.css';
 
 const getHabitRecordState = (records, dayIndex, listId, weekDates) => {
-  const record = records.find(
-    (r) =>
-      isThisWeek(r.updatedAt, weekDates) &&
-      new Date(r.date).getDay() === dayIndex,
-  );
+  const record = records.find((r) => {
+    const day = (new Date(r.updatedAt).getDay() + 6) % 7;
+
+    return isThisWeek(r.updatedAt, weekDates) && day === dayIndex;
+  });
 
   if (!record) return HABIT_ICON_EMPTY;
 
