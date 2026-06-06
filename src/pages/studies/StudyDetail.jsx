@@ -11,6 +11,7 @@ import { copyToClipboard } from '@/utils/copyToClipboard';
 
 import styles from '@/pages/studies/StudyDetail.module.css';
 import StudyEmoji from '@/pages/studies/StudyEmoji';
+import StudyHabitLog from '@/pages/studies/StudyHabitLog';
 
 import Button from '@/components/common/Button/Button';
 import ButtonHabit from '@/components/common/Button/ButtonHabit';
@@ -96,6 +97,9 @@ export default function StudyDetail() {
           <p className={styles.pointTitle}>현재까지 획득한 포인트</p>
           <TagPoint point={totalPoint} />
         </article>
+
+        {/* 습관 기록표 */}
+        <StudyHabitLog studyId={studyId} habitsData={studyData.data.habits} />
       </div>
 
       {/* 공유하기 모달 */}
