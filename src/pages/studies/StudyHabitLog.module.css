@@ -15,7 +15,8 @@
 .noData {
   height: 200px;
   text-align: center;
-  font: var(--typography-400-16);
+  font: var(--typography-500-20);
+  color: var(--gray-gray_818181);
   line-height: 200px;
 }
 

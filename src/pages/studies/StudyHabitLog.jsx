@@ -37,7 +37,7 @@ export default function StudyHabitLog({ habitsData }) {
   return (
     <article className={styles.habitLog}>
       <h2 className={styles.habitTitle}>습관 기록표</h2>
-      {filteredData ? (
+      {filteredData?.length === 0 ? (
         <p className={styles.noData}>완료한 습관이 없습니다.</p>
       ) : (
         <div className={styles.tracker}>
