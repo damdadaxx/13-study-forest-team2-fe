@@ -43,6 +43,18 @@ export default function StudyDetail() {
           navigate('/');
         },
       },
+      habit: {
+        confirmText: '오늘의 습관 확인하기',
+        onConfirm: (pw) => {
+          navigate(`/studies/${studyId}/habits`, { state: { password: pw } });
+        },
+      },
+      focus: {
+        confirmText: '오늘의 집중 시작하기',
+        onConfirm: (pw) => {
+          navigate(`/studies/${studyId}/focus`, { state: { password: pw } });
+        },
+      },
     }),
     [studyId, navigate],
   );
