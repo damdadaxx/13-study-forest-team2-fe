@@ -96,16 +96,16 @@
   --description-color: var(--white-white_FFFFFF);
 }
 .img5 {
-  background-image: url(/src/assets/images/Card/img5.jpg);
+  background-image: url('../../../assets/images/card/img5.jpg');
 }
 .img6 {
-  background-image: url(/src/assets/images/Card/img6.jpg);
+  background-image: url('../../../assets/images/card/img6.jpg');
 }
 .img7 {
-  background-image: url(/src/assets/images/Card/img7.jpg);
+  background-image: url('../../../assets/images/card/img7.jpg');
 }
 .img8 {
-  background-image: url(/src/assets/images/Card/img8.jpg);
+  background-image: url('../../../assets/images/card/img8.jpg');
 }
 
 /* 태블릿: 화면 너비 1023px 이하 */
