@@ -37,54 +37,58 @@ export default function StudyHabitLog({ habitsData }) {
   return (
     <article className={styles.habitLog}>
       <h2 className={styles.habitTitle}>습관 기록표</h2>
-      <div className={styles.tracker}>
-        <div className={styles.trackerInner}>
-          {/* 기록표 헤더 */}
-          <div className={styles.logHeader}>
-            <span className={styles.emptyDay}></span>
-            {filteredData.map((list) => (
-              <p key={list.id} className={styles.contentTitle}>
-                {list.content}
-              </p>
-            ))}
-          </div>
+      {filteredData ? (
+        <p className={styles.noData}>완료한 습관이 없습니다.</p>
+      ) : (
+        <div className={styles.tracker}>
+          <div className={styles.trackerInner}>
+            {/* 기록표 헤더 */}
+            <div className={styles.logHeader}>
+              <span className={styles.emptyDay}></span>
+              {filteredData.map((list) => (
+                <p key={list.id} className={styles.contentTitle}>
+                  {list.content}
+                </p>
+              ))}
+            </div>
 
-          {/* 기록표 바디 */}
-          <div className={styles.logBody}>
-            <div className={styles.logBodyInner}>
-              <div className={styles.days}>
-                {DAYS.map((day, i) => (
-                  <div key={day + i} className={styles.day}>
-                    <span>{day}</span>
-                  </div>
-                ))}
-              </div>
-              <div className={styles.habitContainer}>
-                {filteredData.map((list, listId) => (
-                  <div key={list.id} className={styles.habits}>
-                    {Array.from({ length: 7 }, (_, dayIndex) => (
-                      <div
-                        key={`${list.id}_${dayIndex}`}
-                        className={styles.stickerContainer}
-                      >
-                        <img
-                          className={styles.sticker}
-                          src={getHabitRecordState(
-                            list.habitRecords,
-                            dayIndex,
-                            listId,
-                            weekDates,
-                          )}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ))}
+            {/* 기록표 바디 */}
+            <div className={styles.logBody}>
+              <div className={styles.logBodyInner}>
+                <div className={styles.days}>
+                  {DAYS.map((day, i) => (
+                    <div key={day + i} className={styles.day}>
+                      <span>{day}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.habitContainer}>
+                  {filteredData.map((list, listId) => (
+                    <div key={list.id} className={styles.habits}>
+                      {Array.from({ length: 7 }, (_, dayIndex) => (
+                        <div
+                          key={`${list.id}_${dayIndex}`}
+                          className={styles.stickerContainer}
+                        >
+                          <img
+                            className={styles.sticker}
+                            src={getHabitRecordState(
+                              list.habitRecords,
+                              dayIndex,
+                              listId,
+                              weekDates,
+                            )}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </article>
   );
 }
