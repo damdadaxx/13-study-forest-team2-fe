@@ -30,20 +30,35 @@ export default function StudyEdit() {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const password = location.state?.password; //비밀번호 검증 모달에서 이동할 때 넘겨준 값
+
+  // 진입 시점의 password를 한 번만 고정 (이후 location.state를 비워도 유지됨)
+  const [password] = useState(() => location.state?.password ?? null);
+
+  // 진입 직후 히스토리 엔트리에서 password 제거 (뒤로가기 재진입 차단)
+  useEffect(() => {
+    if (location.state?.password) {
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 위 주석은 의존성 배열에 의도적으로 1회만 시도되게 한거니 검사 무시해라 라는 용도
+
+  // 가드: password 없으면 홈으로 (정상 진입은 통과, 재진입/새로고침은 차단)
   useEffect(() => {
     if (!password) {
-      navigate('/', { replace: true }); //뒤로가기시 무한 루프 방지
+      navigate('/', { replace: true });
     }
   }, [password, navigate]);
+
   const { studyId } = useParams();
   const study = useStudy(studyId);
+
   useEffect(() => {
     if (study?.data && !initialized.current) {
       setNickname(study.data.nickname);
       setTitle(study.data.title);
       setDescription(study.data.description);
       setBgSelected(study.data.background);
+      initialized.current = true;
     }
   }, [study]);
 
@@ -61,7 +76,11 @@ export default function StudyEdit() {
     nickname.length <= 5 &&
     title.length <= 5 &&
     description.length <= 500 &&
-    (pw === '' || (pw.length >= 8 && pw.length <= 15 && pw === pwCheck)) &&
+    (pw === '' ||
+      (pw.length >= 8 &&
+        pw.length <= 15 &&
+        pw === pwCheck &&
+        pw !== password)) && // 기존 비밀번호와 다를 때만 통과
     isChanged; // 변경사항 있어야 통과
 
   const update = useUpdateStudy();
@@ -79,7 +98,7 @@ export default function StudyEdit() {
     };
 
     await update(studyId, body);
-    navigate(`/studies/${studyId}`);
+    navigate(`/studies/${studyId}`, { replace: true });
   };
 
   return (
@@ -209,7 +228,9 @@ export default function StudyEdit() {
               ? ''
               : pw.length < 8 || pw.length > 15
                 ? '*비밀번호는 8자 이상 15자 이하여야 합니다'
-                : ''
+                : pw === password
+                  ? '*기존 비밀번호와 동일합니다'
+                  : ''
           }
         />
         <Input
@@ -220,7 +241,7 @@ export default function StudyEdit() {
           onChange={(e) => setPwCheck(e.target.value)}
           placeholder="비밀번호를 다시 한 번 입력해 주세요"
           error={
-            pw === ''
+            pwCheck === ''
               ? ''
               : pwCheck.length < 8 || pwCheck.length > 15
                 ? '*비밀번호는 8자 이상 15자 이하여야 합니다'
