@@ -178,6 +178,7 @@ export default function Habit() {
         title={title}
         studyId={studyId}
         onConfirm={() => navigate(`/studies/${studyId}/focus`)}
+        confirmText="오늘의 집중으로 가기"
       />
     </Container>
   );
