@@ -105,6 +105,9 @@ export default function PasswordModal({
             type="password"
             value={pw}
             onChange={(e) => setPw(e.target.value)}
+            onKeyDown={(e) =>
+              e.key === 'Enter' && !isSubmitting && handleSubmit()
+            }
             placeholder="비밀번호를 입력해 주세요"
             className={styles.input}
           />
