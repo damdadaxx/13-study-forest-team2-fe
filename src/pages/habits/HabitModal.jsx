@@ -26,7 +26,8 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
           json.data.habits.map((h) => ({
             id: h.id,
             content: h.content,
-            isNew: false, // 새로 추가한 습관 구분
+            originalContent: h.content,
+            isNew: false,
             isDeleted: false,
           })),
         );
@@ -58,6 +59,12 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
     if (error) setError(false);
     if (apiError) setApiError('');
   };
+  const handleClose = () => {
+    setError(false);
+    setApiError('');
+    setHabits([]);
+    onClose();
+  };
 
   const saveHabits = async (targetHabits) => {
     setLoading(true);
@@ -68,11 +75,15 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
           await createHabit(studyId, h.content);
         } else if (!h.isNew && h.isDeleted) {
           await deleteHabit(studyId, h.id);
-        } else if (!h.isNew && !h.isDeleted) {
+        } else if (
+          !h.isNew &&
+          !h.isDeleted &&
+          h.content !== h.originalContent
+        ) {
           await updateHabit(studyId, h.id, h.content);
         }
       }
-      onClose(); 
+      onClose();
     } catch (err) {
       setApiError(
         err.message || '서버 오류가 발생했습니다. 다시 시도해주세요.',
@@ -95,7 +106,7 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
     await saveHabits(habits);
   };
 
-  // 삭제 확인 모달에서 예 눌렀을 때
+  // 삭제 확인 모달에서 확인 눌렀을 때
   const handleConfirmDelete = async () => {
     const habit = habits[deleteTarget];
     let updatedHabits;
@@ -109,6 +120,8 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
     }
 
     setDeleteTarget(null);
+    setError(false);
+    setApiError('');
 
     try {
       // 기존 습관이면 DB에서 삭제
@@ -129,11 +142,11 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
       <Modal
         title="습관 목록"
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={handleClose}
         btnComponents={
           <>
             <Button
-              onClick={onClose}
+              onClick={handleClose}
               color="gray"
               size="md"
               text="취소"
@@ -208,7 +221,7 @@ export default function HabitModal({ isOpen, onClose, studyId }) {
             <Button
               onClick={handleConfirmDelete}
               size="md"
-              text="예"
+              text="확인"
               className={styles.modalBtn}
               disabled={loading}
             />
