@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useLocation, useNavigate, useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
@@ -28,6 +28,14 @@ export default function StudyDetail() {
 
   const [clipboardModal, setClipboardModal] = useState(false);
   const [passwordModalType, setPasswordModalType] = useState(null);
+
+  const location = useLocation();
+
+  const denied = !!location.state?.denied;
+
+  // 신호 비우기: 닫을 때 한 번만
+  const closeDenied = () =>
+    navigate(location.pathname, { replace: true, state: {} });
 
   const PASSWORD_MODAL_CONFIG = useMemo(
     () => ({
@@ -136,6 +144,16 @@ export default function StudyDetail() {
         confirmText={currentConfig?.confirmText}
         onConfirm={PASSWORD_MODAL_CONFIG[passwordModalType]?.onConfirm}
       />
+
+      {/* 패스워드 가드 모달 */}
+      <Modal
+        title="접근 불가"
+        isOpen={denied}
+        onClose={closeDenied}
+        btnComponents={<Button onClick={closeDenied} text="확인" />}
+      >
+        <p className={styles.guardText}>비밀번호 인증이 필요합니다.</p>
+      </Modal>
     </Container>
   );
 }

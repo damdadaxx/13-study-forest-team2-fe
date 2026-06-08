@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 import Container from '@/layouts/Container/Container';
 
+import { usePasswordGuard } from '@/hooks/usePasswordGuard.js';
 import { useStudy, useUpdateStudy } from '@/hooks/useStudy.js';
 
 import styles from '@/pages/studies/StudyEdit.module.css';
@@ -27,30 +28,10 @@ export default function StudyEdit() {
 
   // study 데이터가 처음 들어올 때만 초기화
   const initialized = useRef(false);
-
-  const location = useLocation();
   const navigate = useNavigate();
-
-  // 진입 시점의 password를 한 번만 고정 (이후 location.state를 비워도 유지됨)
-  const [password] = useState(() => location.state?.password ?? null);
-
-  // 진입 직후 히스토리 엔트리에서 password 제거 (뒤로가기 재진입 차단)
-  useEffect(() => {
-    if (location.state?.password) {
-      navigate(location.pathname, { replace: true, state: {} });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // 위 주석은 의존성 배열에 의도적으로 1회만 시도되게 한거니 검사 무시해라 라는 용도
-
-  // 가드: password 없으면 홈으로 (정상 진입은 통과, 재진입/새로고침은 차단)
-  useEffect(() => {
-    if (!password) {
-      navigate('/', { replace: true });
-    }
-  }, [password, navigate]);
-
   const { studyId } = useParams();
   const study = useStudy(studyId);
+  const password = usePasswordGuard(`/studies/${studyId}`);
 
   useEffect(() => {
     if (study?.data && !initialized.current) {
