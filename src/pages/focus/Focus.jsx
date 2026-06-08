@@ -11,6 +11,7 @@ import {
   TOAST_MESSAGE,
 } from '@/constants/constants.js';
 
+import { usePasswordGuard } from '@/hooks/usePasswordGuard.js';
 import { useStudy } from '@/hooks/useStudy.js';
 
 import { formatTimerDisplay } from '@/utils/time.js';
@@ -25,6 +26,7 @@ import Toast from '@/components/common/Toast/Toast';
 export default function Focus() {
   const { studyId } = useParams();
   const navigate = useNavigate();
+  usePasswordGuard(`/studies/${studyId}`);
 
   // 데이터 조회
   const studyResponse = useStudy(studyId);
@@ -94,8 +96,8 @@ export default function Focus() {
     setIsHabitPasswordModalOpen(false);
   }
 
-  function handleConfirmHabitPassword() {
-    navigate(`/studies/${studyId}/habits`);
+  function handleConfirmHabitPassword(pw) {
+    navigate(`/studies/${studyId}/habits`, { state: { password: pw } });
   }
 
   useEffect(() => {
