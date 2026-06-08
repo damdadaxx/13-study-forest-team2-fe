@@ -67,60 +67,67 @@ export default function StudyDetail() {
     [studyId, navigate],
   );
 
-  if (!studyData) return null;
-
   const currentConfig = PASSWORD_MODAL_CONFIG[passwordModalType];
 
   return (
     <Container>
-      <div className={styles.studyDetail}>
-        <div className={styles.topArea}>
-          <StudyEmoji studyId={studyId} />
-          <div className={styles.buttons}>
-            <ButtonText
-              className={styles.button}
-              text="공유하기"
-              onClick={() => copyToClipboard(() => setClipboardModal(true))}
-            />
-            <ButtonText
-              className={styles.button}
-              text="수정하기"
-              onClick={() => setPasswordModalType('edit')}
-            />
-            <ButtonText
-              className={styles.button}
-              text="스터디 삭제하기"
-              color="gray"
-              onClick={() => setPasswordModalType('delete')}
-            />
-          </div>
+      {!studyData ? (
+        <div className={styles.studyDetail}>
+          {' '}
+          <p className={`${styles.empty} ${styles.emptyRecent}`}>
+            등록된 스터디가 없습니다.
+          </p>
         </div>
-
-        <article className={styles.studyInfo}>
-          <div className={styles.titleArea}>
-            <h1 className={styles.title}>
-              <span>{nickname}</span>의 {title}
-            </h1>
-            <div className={styles.buttonStudies}>
-              <ButtonHabit
-                text="오늘의 습관"
-                onClick={() => setPasswordModalType('habit')}
+      ) : (
+        <div className={styles.studyDetail}>
+          <div className={styles.topArea}>
+            <StudyEmoji studyId={studyId} />
+            <div className={styles.buttons}>
+              <ButtonText
+                className={styles.button}
+                text="공유하기"
+                onClick={() => copyToClipboard(() => setClipboardModal(true))}
               />
-              <ButtonHabit
-                text="오늘의 집중"
-                onClick={() => setPasswordModalType('focus')}
+              <ButtonText
+                className={styles.button}
+                text="수정하기"
+                onClick={() => setPasswordModalType('edit')}
+              />
+              <ButtonText
+                className={styles.button}
+                text="스터디 삭제하기"
+                color="gray"
+                onClick={() => setPasswordModalType('delete')}
               />
             </div>
           </div>
-          <p className={styles.introTitle}>소개</p>
-          <p className={styles.description}>{description}</p>
-          <p className={styles.pointTitle}>현재까지 획득한 포인트</p>
-          <TagPoint point={totalPoint} />
-        </article>
 
-        {/* 습관 기록표 */}
-        <StudyHabitLog studyId={studyId} habitsData={studyData.data.habits} />
-      </div>
+          <article className={styles.studyInfo}>
+            <div className={styles.titleArea}>
+              <h1 className={styles.title}>
+                <span>{nickname}</span>의 {title}
+              </h1>
+              <div className={styles.buttonStudies}>
+                <ButtonHabit
+                  text="오늘의 습관"
+                  onClick={() => setPasswordModalType('habit')}
+                />
+                <ButtonHabit
+                  text="오늘의 집중"
+                  onClick={() => setPasswordModalType('focus')}
+                />
+              </div>
+            </div>
+            <p className={styles.introTitle}>소개</p>
+            <p className={styles.description}>{description}</p>
+            <p className={styles.pointTitle}>현재까지 획득한 포인트</p>
+            <TagPoint point={totalPoint} />
+          </article>
+
+          {/* 습관 기록표 */}
+          <StudyHabitLog studyId={studyId} habitsData={studyData.data.habits} />
+        </div>
+      )}
 
       {/* 공유하기 모달 */}
       <Modal
