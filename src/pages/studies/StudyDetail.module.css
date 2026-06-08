@@ -74,6 +74,19 @@
   color: var(--gray-gray_818181, #818181);
 }
 
+/* 빈화면 스타일 */
+.empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-gray_818181);
+  font: var(--typography-500-20);
+}
+.emptyRecent {
+  height: 243px;
+}
+
 /* 태블릿: 화면 너비 1023px 이하 */
 @media (max-width: 1023px) {
   .studyDetail {
