@@ -79,7 +79,7 @@ export default function StudyEdit() {
     };
 
     await update(studyId, body);
-    navigate(`/studies/${studyId}`, { replace: true });
+    navigate(`/studies/${studyId}`);
   };
 
   return (
