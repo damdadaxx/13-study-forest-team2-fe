@@ -5,6 +5,7 @@ import Container from '@/layouts/Container/Container';
 
 import { getHabits, checkHabit } from '@/api/habit';
 
+import { usePasswordGuard } from '@/hooks/usePasswordGuard.js';
 import { useStudy } from '@/hooks/useStudy';
 
 import styles from '@/pages/habits/Habit.module.css';
@@ -32,6 +33,7 @@ function formatNow(date) {
 export default function Habit() {
   const { studyId } = useParams();
   const navigate = useNavigate();
+  usePasswordGuard(`/studies/${studyId}`);
 
   // 스터디명 연동 (useStudy는 언래핑 안 함 -> data.title로 깐다)
   const studyData = useStudy(studyId);
@@ -177,7 +179,9 @@ export default function Habit() {
         nickname={nickname}
         title={title}
         studyId={studyId}
-        onConfirm={() => navigate(`/studies/${studyId}/focus`)}
+        onConfirm={(pw) =>
+          navigate(`/studies/${studyId}/focus`, { state: { password: pw } })
+        }
         confirmText="오늘의 집중으로 가기"
       />
     </Container>
